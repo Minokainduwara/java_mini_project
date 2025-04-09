@@ -21,7 +21,7 @@ public class App extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 600, 400);
 
-        primaryStage.setTitle("Login Page");
+        primaryStage.setTitle("TECLMS");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

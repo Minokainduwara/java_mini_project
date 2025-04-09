@@ -17,6 +17,16 @@
                <image>
                   <Image url="@../Images/Login/TECLMS.png" />
                </image></ImageView>
+            <Label layoutX="52.0" layoutY="362.0" text="©️ 2025 Ones&amp;Zeros  ">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="59.0" layoutY="376.0" text="All Rights Reserved">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="200.0" prefHeight="400.0" prefWidth="398.0">
@@ -38,9 +48,9 @@
             </Label>
             <TextField fx:id="userNameField" layoutX="175.0" layoutY="175.0" prefHeight="25.0" prefWidth="180.0" promptText="Username" style="-fx-background-color: #f8f8ff;" />
             <PasswordField fx:id="PasswordField" layoutX="175.0" layoutY="232.0" prefHeight="25.0" prefWidth="180.0" promptText="Password" style="-fx-background-color: #f8f8ff;" />
-            <Label layoutX="116.0" layoutY="281.0" text="Login Failed.Please try Again" textFill="#f80909" />
-            <Button layoutX="89.0" layoutY="332.0" mnemonicParsing="false" text="Log In" />
-            <Button layoutX="260.0" layoutY="332.0" mnemonicParsing="false" style="-fx-background-color: #dc143c;" text="Cancel" />
+            <Label layoutX="116.0" layoutY="281.0" textFill="#f80909" />
+            <Button fx:id="LoginBtn" layoutX="89.0" layoutY="332.0" mnemonicParsing="false" style="-fx-background-color: #1977c7;" text="Log In" />
+            <Button fx:id="CancelBtn" layoutX="260.0" layoutY="332.0" mnemonicParsing="false" onAction="#CancelBtnOnAction" style="-fx-background-color: #dc143c;" text="Cancel" />
          </children>
       </AnchorPane>
    </children>
