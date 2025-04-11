@@ -1,10 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.app.Controllers.Student.StudentController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="-5.0" layoutY="-6.0" prefHeight="700.0" prefWidth="1200.0">
+         <left>
+            <Pane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: Teal green;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="28.0" layoutY="245.0" prefHeight="350.0" prefWidth="250.0" style="-fx-background-color: D9D9D9; -fx-background-radius: 20;">
+                     <children>
+                        <Button layoutX="200.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: Teal Green; -fx-background-radius: 10px;" text="HOME" textFill="#d9d9d9">
+                           <VBox.margin>
+                              <Insets left="20.0" top="30.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="30.0" layoutY="30.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: Teal Green; -fx-background-radius: 10px;" text="Time Table" textFill="#d9d9d9">
+                           <VBox.margin>
+                              <Insets left="20.0" top="25.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="30.0" layoutY="110.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: Teal Green; -fx-background-radius: 10px;" text="Medical Report" textFill="#d9d9d9">
+                           <VBox.margin>
+                              <Insets left="20.0" top="25.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="30.0" layoutY="110.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: Teal Green; -fx-background-radius: 10px;" text="Exam Result" textFill="#d9d9d9">
+                           <VBox.margin>
+                              <Insets left="20.0" top="25.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button layoutX="10.0" layoutY="179.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="200.0" style="-fx-background-color: Teal Green; -fx-background-radius: 10px;" text="Attendence View" textFill="#d9d9d9">
+                           <VBox.margin>
+                              <Insets left="20.0" top="25.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="61.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" rotate="-179.1" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="38.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+         </left>
+         <right>
+            <Pane prefHeight="700.0" prefWidth="906.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
 </AnchorPane>
