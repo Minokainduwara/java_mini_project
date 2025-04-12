@@ -2,6 +2,7 @@ package com.example.app.Controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import javafx.stage.Stage;
 
@@ -12,7 +13,11 @@ public class LoginController {
     @FXML
     private Button CancelBtn;
 
-    public void LoginBtnOnAction(ActionEvent event) {
+    @FXML
+    private Label loginErrormsg;
+
+    public void LoginBtnOnAction(javafx.event.ActionEvent actionEvent) {
+
 
 
     }
