@@ -5,6 +5,8 @@ import javafx.scene.control.Button;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import javafx.stage.Stage;
+import javafx.scene.control.Label;
+
 
 public class LoginController {
     @FXML
@@ -17,9 +19,7 @@ public class LoginController {
     private Label loginErrormsg;
 
     public void LoginBtnOnAction(javafx.event.ActionEvent actionEvent) {
-
-
-
+        loginErrormsg.setText("You try to login");
     }
 
     public void CancelBtnOnAction(javafx.event.ActionEvent actionEvent) {

@@ -49,7 +49,7 @@
             <TextField fx:id="userNameField" layoutX="175.0" layoutY="175.0" prefHeight="25.0" prefWidth="180.0" promptText="Username" style="-fx-background-color: #f8f8ff;" />
             <PasswordField fx:id="PasswordField" layoutX="175.0" layoutY="232.0" prefHeight="25.0" prefWidth="180.0" promptText="Password" style="-fx-background-color: #f8f8ff;" />
             <Label fx:id="loginErrormsg" layoutX="116.0" layoutY="281.0" textFill="#f80909" />
-            <Button fx:id="LoginBtn" layoutX="89.0" layoutY="332.0" mnemonicParsing="false" style="-fx-background-color: #1977c7;" text="Log In" />
+            <Button fx:id="LoginBtn" layoutX="89.0" layoutY="332.0" mnemonicParsing="false" onAction="#LoginBtnOnAction" style="-fx-background-color: #1977c7;" text="Log In" />
             <Button fx:id="CancelBtn" layoutX="260.0" layoutY="332.0" mnemonicParsing="false" onAction="#CancelBtnOnAction" style="-fx-background-color: #dc143c;" text="Cancel" />
          </children>
       </AnchorPane>
