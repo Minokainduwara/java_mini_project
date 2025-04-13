@@ -1,0 +1,30 @@
+_______________________________________________________________
+Create User Table
+_______________________________________________________________
+
+CREATE TABLE User (
+                      id INT AUTO_INCREMENT PRIMARY KEY,
+                      username VARCHAR(50) UNIQUE NOT NULL,
+                      password VARCHAR(100) NOT NULL,
+                      name VARCHAR(100) NOT NULL,
+                      email VARCHAR(100) UNIQUE NOT NULL,
+                      phone VARCHAR(20),
+                      department VARCHAR(50),
+                      role ENUM('Admin', 'Lecturer', 'Technical Officer', 'Student') NOT NULL,
+                      registration_number VARCHAR(20) UNIQUE,
+                      profile_picture LONGBLOB,
+                      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+
+_____________________________________
+Add Admin data to the user
+_____________________________________
+
+INSERT INTO User (username, password, name, email, phone, role)
+VALUES ('admin', 'admin123', 'System Administrator', 'admin@ruhuna.ac.lk', '0770000000', 'Admin');
+
+
+
