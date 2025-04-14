@@ -8,15 +8,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Lecturer.CourseModuleController"
->
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Lecturer.CourseModuleController">
    <children>
       <Pane layoutX="90.0" layoutY="50.0" prefHeight="500.0" prefWidth="620.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10px ;">
          <children>
             <HBox layoutX="10.0" layoutY="98.0" prefHeight="190.0" prefWidth="600.0" style="-fx-background-color: none; -fx-background-radius: 10px;">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Add Module">
+                  <Button fx:id="addModuleButton" mnemonicParsing="false" onAction="#handleAddModule" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Add Module">
                      <HBox.margin>
                         <Insets left="20.0" top="20.0" />
                      </HBox.margin>
@@ -24,7 +22,7 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Button">
+                  <Button fx:id="deleteModuleButton" mnemonicParsing="false" onAction="#handleDeleteModule" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Delete Module">
                      <HBox.margin>
                         <Insets left="80.0" top="20.0" />
                      </HBox.margin>
@@ -36,7 +34,7 @@
             </HBox>
             <HBox layoutX="180.0" layoutY="310.0" prefHeight="190.0" prefWidth="260.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Button">
+                  <Button fx:id="showModuleButton" mnemonicParsing="false" onAction="#handleShowModule" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Show Module">
                      <HBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </HBox.margin>
