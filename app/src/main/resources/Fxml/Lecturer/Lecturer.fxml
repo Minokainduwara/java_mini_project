@@ -17,12 +17,12 @@
          <left>
             <Pane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: #197c77;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="userName" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="190.0" prefHeight="30.0" prefWidth="150.0" />
-                  <Button fx:id="profileButton" layoutX="86.0" layoutY="236.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="39.0" prefWidth="128.0" style="-fx-background-radius: 10px;" text="View Profile" />
-                  <Button layoutX="106.0" layoutY="651.0" mnemonicParsing="false" onAction="#logOutButton" prefHeight="35.0" prefWidth="88.0" style="-fx-background-radius: 10px;" text="Log Out" />
+                  <Label fx:id="userName" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="198.0" prefHeight="30.0" prefWidth="150.0" />
+                  <Button fx:id="profileButton" layoutX="86.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleProfileButton" prefHeight="39.0" prefWidth="128.0" style="-fx-background-radius: 10px;" text="View Profile" />
+                  <Button fx:id="logOutButton" layoutX="106.0" layoutY="651.0" mnemonicParsing="false" onAction="#handleLogOutButton" prefHeight="35.0" prefWidth="88.0" style="-fx-background-radius: 10px;" text="Log Out" />
                   <VBox layoutX="25.0" layoutY="292.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10px;">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#homeButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Home" textFill="WHITE">
+                        <Button fx:id="homeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleHomeButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Home" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -33,7 +33,7 @@
                               <Insets left="10.0" top="40.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#courseModuleButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Course Module" textFill="WHITE">
+                        <Button fx:id="courseModuleButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCourseModuleButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Course Module" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -44,7 +44,7 @@
                               <Insets left="10.0" top="30.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#noticesButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Notices" textFill="WHITE">
+                        <Button fx:id="noticesButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNoticesButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Notices" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -52,7 +52,7 @@
                               <Insets left="10.0" top="30.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#studentDetailsButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Student Details" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="studentDetails" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleStudentDetailsButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Student Details" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
