@@ -41,17 +41,6 @@ public class LectureController {
     }
 
 
-    /*private void loadPage(String page) {
-        FxmlLoader object = new FxmlLoader();
-        Pane view = object.getPage(page);
-        if (view != null) {
-            mainPane.setCenter(view);
-        } else {
-            System.out.println("Failed to load: " + page);
-        }
-    }*/
-
-
     @FXML
     private void profileButton(ActionEvent event) {
         //loadPage("Profile");
@@ -64,7 +53,7 @@ public class LectureController {
 
     @FXML
     private void courseModuleButton(ActionEvent event) {
-        //loadPage("CourseModule");
+        loadPage("/FXML/Lecturer/CourseModule");
     }
 
     @FXML
