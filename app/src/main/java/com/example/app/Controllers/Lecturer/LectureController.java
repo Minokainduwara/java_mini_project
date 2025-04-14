@@ -8,25 +8,38 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
+
 public class LectureController {
     @FXML
     private BorderPane mainPane;
+
+    private void loadPage(String page) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(page + ".fxml"));
+        try {
+            Pane view = loader.load();
+            mainPane.setCenter(view);
+        } catch (IOException e) {
+            System.out.println("Failed to load: " + page);
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private Label userName;
 
     @FXML
-    private Button profileButton, homeButton, courseModuleButton, noticesButton, studentDetailsButton, logOutButton;
+    private Button profileButton;
 
-    /*@FXML
-    private void profileButton(ActionEvent event) {
-        loadPage("Profile");
-    }*/
+    @FXML
+    private Button courseModuleButton, noticesButton, studentDetailsButton, logOutButton;
 
-    /*@FXML
-    private void CourseModuleButton(ActionEvent event) {
-        loadPage("CourseModule");
-    }*/
+
+    @FXML
+    private void initialize() {
+        userName.setText("User Name: " + userName.getText());
+    }
+
 
     /*private void loadPage(String page) {
         FxmlLoader object = new FxmlLoader();
@@ -38,9 +51,10 @@ public class LectureController {
         }
     }*/
 
+
     @FXML
     private void profileButton(ActionEvent event) {
-
+        //loadPage("Profile");
     }
 
     @FXML
@@ -50,7 +64,7 @@ public class LectureController {
 
     @FXML
     private void courseModuleButton(ActionEvent event) {
-
+        //loadPage("CourseModule");
     }
 
     @FXML
