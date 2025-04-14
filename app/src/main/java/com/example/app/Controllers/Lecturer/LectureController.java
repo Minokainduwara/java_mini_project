@@ -42,32 +42,32 @@ public class LectureController {
 
 
     @FXML
-    private void profileButton(ActionEvent event) {
-        //loadPage("Profile");
+    private void handleProfileButton(ActionEvent event) {
+        loadPage("/FXML/Lecturer/Profile");
     }
 
     @FXML
-    private void homeButton(ActionEvent event) {
+    private void handleHomeButton(ActionEvent event) {
 
     }
 
     @FXML
-    private void courseModuleButton(ActionEvent event) {
+    private void handleCourseModuleButton(ActionEvent event) {
         loadPage("/FXML/Lecturer/CourseModule");
     }
 
     @FXML
-    private void noticesButton(ActionEvent event) {
-
+    private void handleNoticesButton(ActionEvent event) {
+        loadPage(("/FXML/Lecturer/Notices"));
     }
 
     @FXML
-    private void studentDetailsButton(ActionEvent event) {
-
+    private void handleStudentDetailsButton(ActionEvent event) {
+        loadPage(("/FXML/Lecturer/StudentDetails"));
     }
 
     @FXML
-    private void logOutButton(ActionEvent event) {
+    private void handleLogOutButton(ActionEvent event) {
 
     }
 
