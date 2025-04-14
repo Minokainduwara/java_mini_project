@@ -62,8 +62,8 @@
                         </Button>
                      </children>
                   </VBox>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
-                  <Circle fill="DODGERBLUE" layoutX="150.0" layoutY="134.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="115.0" fitWidth="116.0" layoutX="92.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
+                  <Circle fill="DODGERBLUE" layoutX="150.0" layoutY="134.0" radius="56.5" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </Pane>
          </left>
