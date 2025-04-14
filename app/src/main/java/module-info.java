@@ -11,6 +11,7 @@ module com.example.app {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.desktop;
+    requires java.sql;
 
     opens com.example.app.Controllers to javafx.fxml;
 
