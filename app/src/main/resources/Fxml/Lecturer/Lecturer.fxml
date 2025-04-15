@@ -33,6 +33,17 @@
                               <Insets left="10.0" top="40.0" />
                            </VBox.margin>
                         </Button>
+                        <Button fx:id="lectureMaterialButton" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleLectureMaterialButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Lecture Material" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
                         <Button fx:id="courseModuleButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCourseModuleButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Course Module" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
@@ -41,7 +52,7 @@
                               <Insets />
                            </opaqueInsets>
                            <VBox.margin>
-                              <Insets left="10.0" top="30.0" />
+                              <Insets left="10.0" top="20.0" />
                            </VBox.margin>
                         </Button>
                         <Button fx:id="noticesButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNoticesButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Notices" textFill="WHITE">
@@ -49,7 +60,7 @@
                               <Font size="13.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="10.0" top="30.0" />
+                              <Insets left="10.0" top="20.0" />
                            </VBox.margin>
                         </Button>
                         <Button fx:id="studentDetails" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleStudentDetailsButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Student Details" textAlignment="CENTER" textFill="WHITE">
@@ -57,7 +68,7 @@
                               <Font size="13.0" />
                            </font>
                            <VBox.margin>
-                              <Insets left="10.0" top="30.0" />
+                              <Insets left="10.0" top="20.0" />
                            </VBox.margin>
                         </Button>
                      </children>
