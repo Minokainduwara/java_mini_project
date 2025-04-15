@@ -1,0 +1,140 @@
+/* Main color variables */
+* {
+    -fx-primary-color: #197C77;
+    -fx-primary-light: #2AAEA7;
+    -fx-primary-dark: #0A5A56;
+    -fx-secondary-color: #FFFFFF;
+    -fx-light-grey: #F5F5F5;
+    -fx-medium-grey: #E0E0E0;
+    -fx-dark-grey: #888888;
+    -fx-focus-color: -fx-primary-color;
+}
+
+/* Root styles */
+.root {
+    -fx-background-color: white;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Left panel */
+.left-panel {
+    -fx-background-color: linear-gradient(to bottom right, -fx-primary-color, -fx-primary-dark);
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+/* Logo text styles */
+.logo-text {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 28px;
+}
+
+.logo-subtext {
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 18px;
+}
+
+.welcome-text {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-padding: 20 0 5 0;
+}
+
+.welcome-subtext {
+    -fx-text-fill: rgba(255, 255, 255, 0.8);
+    -fx-font-size: 14px;
+}
+
+/* Login panel */
+.login-panel {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.signin-text {
+    -fx-text-fill: -fx-primary-dark;
+    -fx-font-weight: bold;
+    -fx-font-size: 26px;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Form fields */
+.field-label {
+    -fx-text-fill: -fx-dark-grey;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.text-field, .password-field {
+    -fx-background-color: -fx-light-grey;
+    -fx-background-radius: 4px;
+    -fx-border-color: -fx-medium-grey;
+    -fx-border-radius: 4px;
+    -fx-padding: 12px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-background-color: white;
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 1.5px;
+}
+
+/* Login button */
+.login-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-padding: 10 20 10 20;
+}
+
+.login-button:hover {
+    -fx-background-color: -fx-primary-light;
+}
+
+.login-button:pressed {
+    -fx-background-color: -fx-primary-dark;
+}
+
+/* Forgot password link */
+.forgot-password {
+    -fx-text-fill: -fx-primary-color;
+    -fx-underline: false;
+    -fx-font-size: 12px;
+}
+
+.forgot-password:hover {
+    -fx-text-fill: -fx-primary-light;
+    -fx-underline: true;
+}
+
+/* Remember me */
+.remember-me {
+    -fx-mark-color: -fx-primary-color;
+}
+
+.remember-me-text {
+    -fx-text-fill: -fx-dark-grey;
+    -fx-font-size: 12px;
+}
+
+/* Divider */
+.divider {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-padding: 10 0 10 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 800px) {
+    .left-panel {
+        -fx-max-width: 250px;
+    }
+
+    .login-panel {
+        -fx-padding: 40 30 40 30;
+    }
+}

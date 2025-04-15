@@ -1,10 +1,420 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.Circle?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.app.Controllers.TechnicalOfficer.TechnicalOfficerController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="700.0" prefWidth="1000.0"
+            stylesheets="@../../Styles/technicalOfficer.css">
 
-</AnchorPane>
+    <!-- Left Side Navigation Panel -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="200.0" spacing="10.0">
+            <padding>
+                <Insets top="20.0" right="10.0" bottom="20.0" left="10.0"/>
+            </padding>
+
+            <!-- Profile Picture Display -->
+            <StackPane styleClass="profile-picture-container" alignment="CENTER">
+                <ImageView fx:id="profileImageView" fitHeight="100.0" fitWidth="100.0" preserveRatio="true" styleClass="profile-image"/>
+                <Circle styleClass="profile-circle" radius="50.0" mouseTransparent="true" />
+            </StackPane>
+
+            <Label text="Technical Officer" textFill="WHITE" styleClass="logo-text">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+
+            <Separator/>
+
+            <Button fx:id="dashboardBtn" text="Dashboard" maxWidth="Infinity"
+                    onAction="#handleDashboardAction" styleClass="sidebar-button"/>
+
+            <Button fx:id="profileBtn" text="My Profile" maxWidth="Infinity"
+                    onAction="#handleProfileAction" styleClass="sidebar-button"/>
+
+            <Button fx:id="attendanceBtn" text="Attendance Management" maxWidth="Infinity"
+                    onAction="#handleAttendanceAction" styleClass="sidebar-button"/>
+
+            <Button fx:id="medicalBtn" text="Medical Records" maxWidth="Infinity"
+                    onAction="#handleMedicalAction" styleClass="sidebar-button"/>
+
+            <Button fx:id="noticeBtn" text="Notices" maxWidth="Infinity"
+                    onAction="#handleNoticeAction" styleClass="sidebar-button"/>
+
+            <Button fx:id="timetableBtn" text="Timetables" maxWidth="Infinity"
+                    onAction="#handleTimetableAction" styleClass="sidebar-button"/>
+
+            <Separator/>
+
+            <Button fx:id="logoutBtn" text="Logout" maxWidth="Infinity"
+                    onAction="#handleLogoutAction" styleClass="sidebar-button"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label fx:id="statusLabel" text="Logged in as: [Username]" styleClass="status-label"/>
+        </VBox>
+    </left>
+
+    <!-- Content Area - Will be dynamically populated -->
+    <center>
+        <StackPane>
+            <!-- Profile View -->
+            <AnchorPane fx:id="profileView" visible="false">
+                <VBox spacing="15.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0"
+                      AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+                    <Label text="My Profile" styleClass="heading-label">
+                        <font>
+                            <Font name="System Bold" size="24.0"/>
+                        </font>
+                    </Label>
+
+                    <!-- Profile Picture Section -->
+                    <HBox spacing="20.0" alignment="CENTER_LEFT">
+                        <VBox alignment="CENTER" spacing="10.0" styleClass="profile-picture-edit">
+                            <StackPane styleClass="profile-picture-container" alignment="CENTER">
+                                <ImageView fx:id="profilePictureView" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" styleClass="profile-image-large"/>
+                                <Circle styleClass="profile-circle-large" radius="75.0" mouseTransparent="true" />
+                            </StackPane>
+                            <Button text="Change Picture" onAction="#handleChangePicture" styleClass="picture-button"/>
+                        </VBox>
+                        
+                        <VBox spacing="5.0">
+                            <Label text="Profile Information" styleClass="section-header">
+                                <font>
+                                    <Font name="System Bold" size="16.0"/>
+                                </font>
+                            </Label>
+                            <Label text="Update your personal information and profile picture" styleClass="section-description"/>
+                        </VBox>
+                    </HBox>
+
+                    <GridPane hgap="10.0" vgap="10.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="150.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="300.0"/>
+                        </columnConstraints>
+
+                        <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Label fx:id="usernameLabel" text="[username]" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="nameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Phone:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="phoneField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="Department:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="departmentComboBox" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <HBox spacing="10.0">
+                        <Button text="Update Profile" onAction="#handleUpdateProfile"/>
+                        <Button text="Change Password" onAction="#handleChangePassword"/>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+
+            <!-- Attendance Management View -->
+            <AnchorPane fx:id="attendanceView" visible="false">
+                <VBox spacing="15.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0"
+                      AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+                    <Label text="Attendance Management" styleClass="heading-label">
+                        <font>
+                            <Font name="System Bold" size="24.0"/>
+                        </font>
+                    </Label>
+
+                    <HBox spacing="10.0">
+                        <ComboBox fx:id="courseComboBox" promptText="Select Course"/>
+                        <ComboBox fx:id="sessionTypeComboBox" promptText="Session Type (Theory/Practical)"/>
+                        <DatePicker fx:id="attendanceDatePicker" promptText="Select Date"/>
+                        <Button text="Load Students" onAction="#handleLoadStudents"/>
+                    </HBox>
+
+                    <!-- Attendance Statistics Panel -->
+                    <TitledPane text="Course Attendance Statistics" fx:id="statisticsPane" expanded="false">
+                        <VBox spacing="10">
+                            <HBox spacing="20" alignment="CENTER_LEFT">
+                                <Label text="Overall Attendance Rate:" styleClass="stats-label"/>
+                                <Label fx:id="overallAttendanceLabel" text="0%" styleClass="stats-value"/>
+                                
+                                <Label text="Present Students:" styleClass="stats-label"/>
+                                <Label fx:id="presentStudentsLabel" text="0" styleClass="stats-value"/>
+                                
+                                <Label text="Absent Students:" styleClass="stats-label"/>
+                                <Label fx:id="absentStudentsLabel" text="0" styleClass="stats-value"/>
+                                
+                                <Label text="Medical Leave:" styleClass="stats-label"/>
+                                <Label fx:id="medicalLeaveLabel" text="0" styleClass="stats-value"/>
+                            </HBox>
+                            
+                            <HBox spacing="10">
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="Session Statistics" styleClass="subsection-header"/>
+                                    <GridPane hgap="10" vgap="5">
+                                        <columnConstraints>
+                                            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="150"/>
+                                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="80"/>
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="25"/>
+                                            <RowConstraints minHeight="25"/>
+                                            <RowConstraints minHeight="25"/>
+                                        </rowConstraints>
+                                        
+                                        <Label text="Total Sessions:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                        <Label fx:id="totalSessionsLabel" text="0" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                        
+                                        <Label text="Today's Sessions:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                        <Label fx:id="todaySessionsLabel" text="0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                        
+                                        <Label text="Attendance Rate Today:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                        <Label fx:id="todayRateLabel" text="0%" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                                    </GridPane>
+                                </VBox>
+                                
+                                <Separator orientation="VERTICAL"/>
+                                
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <Label text="Student Statistics" styleClass="subsection-header"/>
+                                    <GridPane hgap="10" vgap="5">
+                                        <columnConstraints>
+                                            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="150"/>
+                                            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="80"/>
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="25"/>
+                                            <RowConstraints minHeight="25"/>
+                                            <RowConstraints minHeight="25"/>
+                                        </rowConstraints>
+                                        
+                                        <Label text="Perfect Attendance:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                        <Label fx:id="perfectAttendanceLabel" text="0" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                        
+                                        <Label text="Critical Attendance (&lt;80%):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                        <Label fx:id="criticalAttendanceLabel" text="0" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                        
+                                        <Label text="Total Enrolled:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                        <Label fx:id="totalEnrolledLabel" text="0" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                                    </GridPane>
+                                </VBox>
+                            </HBox>
+                            
+                            <Button text="View Detailed Report" onAction="#handleViewDetailedReport" styleClass="action-button"/>
+                        </VBox>
+                    </TitledPane>
+
+                    <TableView fx:id="attendanceTableView" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="idColumn" text="Student ID"/>
+                            <TableColumn fx:id="nameColumn" text="Name"/>
+                            <TableColumn fx:id="presentColumn" text="Present"/>
+                            <TableColumn fx:id="medicalColumn" text="Medical"/>
+                            <TableColumn fx:id="notesColumn" text="Notes"/>
+                            <!-- New column for attendance statistics per student -->
+                            <TableColumn fx:id="attendanceRateColumn" text="Attendance Rate (%)"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="10.0">
+                        <Button text="Save Attendance" onAction="#handleSaveAttendance"/>
+                        <Button text="Generate Report" onAction="#handleGenerateAttendanceReport"/>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button text="View Student History" onAction="#handleViewStudentHistory"/>
+                        <Button text="Update Statistics" onAction="#handleUpdateStatistics"/>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+
+            <!-- Medical Records View -->
+            <AnchorPane fx:id="medicalView" visible="false">
+                <VBox spacing="15.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0"
+                      AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+                    <Label text="Medical Records Management" styleClass="heading-label">
+                        <font>
+                            <Font name="System Bold" size="24.0"/>
+                        </font>
+                    </Label>
+
+                    <HBox spacing="10.0">
+                        <TextField fx:id="searchStudentField" promptText="Search Student by ID"/>
+                        <Button text="Search" onAction="#handleSearchStudent"/>
+                    </HBox>
+
+                    <TableView fx:id="medicalTableView" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="medicalIdColumn" text="ID"/>
+                            <TableColumn fx:id="studentIdColumn" text="Student ID"/>
+                            <TableColumn fx:id="studentNameColumn" text="Name"/>
+                            <TableColumn fx:id="startDateColumn" text="Start Date"/>
+                            <TableColumn fx:id="endDateColumn" text="End Date"/>
+                            <TableColumn fx:id="reasonColumn" text="Reason"/>
+                            <TableColumn fx:id="statusColumn" text="Status"/>
+                        </columns>
+                    </TableView>
+
+                    <TitledPane text="Add/Edit Medical Record" expanded="false">
+                        <VBox spacing="10.0">
+                            <GridPane hgap="10.0" vgap="10.0">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="150.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="300.0"/>
+                                </columnConstraints>
+
+                                <Label text="Student ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="medicalStudentIdField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="Start Date:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <DatePicker fx:id="medicalStartDatePicker" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                <Label text="End Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                <DatePicker fx:id="medicalEndDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                <Label text="Reason:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                <TextArea fx:id="medicalReasonField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                <Label text="Status:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                                <ComboBox fx:id="medicalStatusComboBox" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            </GridPane>
+
+                            <HBox spacing="10.0">
+                                <Button text="Add Medical" onAction="#handleAddMedical"/>
+                                <Button text="Update Medical" onAction="#handleUpdateMedical"/>
+                                <Button text="Remove Medical" onAction="#handleRemoveMedical"/>
+                                <Button text="Clear" onAction="#handleClearMedical"/>
+                            </HBox>
+                        </VBox>
+                    </TitledPane>
+                </VBox>
+            </AnchorPane>
+
+            <!-- Notices View -->
+            <AnchorPane fx:id="noticeView" visible="false">
+                <VBox spacing="15.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0"
+                      AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+                    <Label text="Notices" styleClass="heading-label">
+                        <font>
+                            <Font name="System Bold" size="24.0"/>
+                        </font>
+                    </Label>
+
+                    <TableView fx:id="noticeTableView" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="noticeIdColumn" text="ID"/>
+                            <TableColumn fx:id="noticeTitleColumn" text="Title"/>
+                            <TableColumn fx:id="noticeDateColumn" text="Date Posted"/>
+                            <TableColumn fx:id="noticeAuthorColumn" text="Posted By"/>
+                        </columns>
+                    </TableView>
+
+                    <TitledPane text="Notice Details" expanded="true">
+                        <TextArea fx:id="noticeContentArea" editable="false" wrapText="true"
+                                  prefHeight="200.0"/>
+                    </TitledPane>
+                </VBox>
+            </AnchorPane>
+
+            <!-- Timetable View -->
+            <AnchorPane fx:id="timetableView" visible="false">
+                <VBox spacing="15.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0"
+                      AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+                    <Label text="Department Timetables" styleClass="heading-label">
+                        <font>
+                            <Font name="System Bold" size="24.0"/>
+                        </font>
+                    </Label>
+
+                    <HBox spacing="10.0">
+                        <ComboBox fx:id="departmentTimetableComboBox" promptText="Select Department"/>
+                        <ComboBox fx:id="semesterComboBox" promptText="Select Semester"/>
+                        <Button text="View Timetable" onAction="#handleViewTimetable"/>
+                    </HBox>
+
+                    <TableView fx:id="timetableTableView" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="timeColumn" text="Time"/>
+                            <TableColumn fx:id="mondayColumn" text="Monday"/>
+                            <TableColumn fx:id="tuesdayColumn" text="Tuesday"/>
+                            <TableColumn fx:id="wednesdayColumn" text="Wednesday"/>
+                            <TableColumn fx:id="thursdayColumn" text="Thursday"/>
+                            <TableColumn fx:id="fridayColumn" text="Friday"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="10.0">
+                        <Button text="Print Timetable" onAction="#handlePrintTimetable"/>
+                        <Button text="Export to PDF" onAction="#handleExportTimetable"/>
+                    </HBox>
+                </VBox>
+            </AnchorPane>
+
+            <!-- Welcome/Dashboard View (default view) -->
+            <AnchorPane fx:id="dashboardView" visible="true">
+                <VBox spacing="15.0" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0"
+                      AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+                    <Label text="Technical Officer Dashboard" styleClass="heading-label">
+                        <font>
+                            <Font name="System Bold" size="24.0"/>
+                        </font>
+                    </Label>
+
+                    <HBox spacing="20.0">
+                        <VBox styleClass="dashboard-card" spacing="10.0" HBox.hgrow="ALWAYS">
+                            <Label text="Recent Attendance" styleClass="card-title"/>
+                            <Label fx:id="attendanceCountLabel" text="0 Records Today" styleClass="card-count"/>
+                            <Button text="Manage Attendance" onAction="#handleAttendanceAction" 
+                                    styleClass="action-button"/>
+                        </VBox>
+
+                        <VBox styleClass="dashboard-card" spacing="10.0" HBox.hgrow="ALWAYS">
+                            <Label text="Medical Records" styleClass="card-title"/>
+                            <Label fx:id="medicalCountLabel" text="0 Pending Approvals" styleClass="card-count"/>
+                            <Button text="Manage Medical Records" onAction="#handleMedicalAction" 
+                                    styleClass="action-button"/>
+                        </VBox>
+
+                        <VBox styleClass="dashboard-card" spacing="10.0" HBox.hgrow="ALWAYS">
+                            <Label text="Latest Notices" styleClass="card-title"/>
+                            <Label fx:id="noticeCountLabel" text="0 New Notices" styleClass="card-count"/>
+                            <Button text="View Notices" onAction="#handleNoticeAction" 
+                                    styleClass="action-button"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Add System Administration Card -->
+                    <VBox styleClass="dashboard-card" spacing="10.0">
+                        <Label text="System Administration" styleClass="card-title"/>
+                        <HBox spacing="10.0">
+                            <Button text="Ensure Course Enrollments" onAction="#handleEnsureEnrollments" 
+                                    styleClass="action-button"/>
+                        </HBox>
+                    </VBox>
+
+                    <TitledPane text="Today's Sessions" expanded="true">
+                        <TableView fx:id="todaySessionsTableView" prefHeight="200.0">
+                            <columns>
+                                <TableColumn fx:id="sessionTimeColumn" text="Time"/>
+                                <TableColumn fx:id="sessionCourseColumn" text="Course"/>
+                                <TableColumn fx:id="sessionTypeColumn" text="Type"/>
+                                <TableColumn fx:id="sessionVenueColumn" text="Venue"/>
+                                <TableColumn fx:id="sessionLecturerColumn" text="Lecturer"/>
+                            </columns>
+                        </TableView>
+                    </TitledPane>
+                </VBox>
+            </AnchorPane>
+        </StackPane>
+    </center>
+</BorderPane>

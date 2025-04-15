@@ -1,0 +1,363 @@
+/* Main color variables - Same as login.css */
+* {
+    -fx-primary-color: #197C77;
+    -fx-primary-light: #2AAEA7;
+    -fx-primary-dark: #0A5A56;
+    -fx-secondary-color: #FFFFFF;
+    -fx-light-grey: #F5F5F5;
+    -fx-medium-grey: #E0E0E0;
+    -fx-dark-grey: #888888;
+    -fx-focus-color: -fx-primary-color;
+}
+
+/* Root styles */
+.root {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Sidebar styles */
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, -fx-primary-color, -fx-primary-dark);
+    background-color: #197C77; /* Approximation for standard CSS */
+    -fx-text-fill: white;
+    color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+}
+
+/* Button styles */
+.sidebar Button {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-text-fill: white;
+    color: white;
+    -fx-font-size: 14px;
+    font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    text-align: left;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-padding: 10 15 10 15;
+    padding: 10px 15px;
+}
+
+.sidebar Button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar Button:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Active button */
+.active-button {
+    -fx-background-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+/* Separator */
+.sidebar .separator .line {
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 1px;
+    border-width: 1px;
+}
+
+/* Content area styles */
+.heading-label {
+    -fx-text-fill: -fx-primary-dark;
+    color: #0A5A56;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 24px;
+    font-size: 24px;
+    -fx-padding: 0 0 15 0;
+    padding: 0 0 15px 0;
+}
+
+/* Form styling */
+.form-container {
+    -fx-spacing: 15;
+}
+
+.form-label {
+    -fx-text-fill: -fx-dark-grey;
+    color: #888888;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.text-field, .text-area, .password-field, .combo-box {
+    -fx-background-color: -fx-light-grey;
+    background-color: #F5F5F5;
+    -fx-background-radius: 4px;
+    border-radius: 4px;
+    -fx-border-color: -fx-medium-grey;
+    border-color: #E0E0E0;
+    -fx-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.text-field:focused, .text-area:focused, .password-field:focused, .combo-box:focused {
+    -fx-border-color: -fx-primary-color;
+    border-color: #197C77;
+    -fx-border-width: 1.5px;
+    border-width: 1.5px;
+}
+
+/* Button styling */
+.action-button {
+    -fx-background-color: -fx-primary-color;
+    background-color: #197C77;
+    -fx-text-fill: white;
+    color: white;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-background-radius: 4px;
+    border-radius: 4px;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-padding: 8 15 8 15;
+    padding: 8px 15px;
+}
+
+.action-button:hover {
+    -fx-background-color: -fx-primary-light;
+    background-color: #2AAEA7;
+}
+
+.action-button:pressed {
+    -fx-background-color: -fx-primary-dark;
+    background-color: #0A5A56;
+}
+
+/* Secondary button */
+.secondary-button {
+    -fx-background-color: -fx-medium-grey;
+    background-color: #E0E0E0;
+    -fx-text-fill: -fx-dark-grey;
+    color: #888888;
+    -fx-background-radius: 4px;
+    border-radius: 4px;
+    -fx-cursor: hand;
+    cursor: pointer;
+    -fx-padding: 8 15 8 15;
+    padding: 8px 15px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #D0D0D0;
+    background-color: #D0D0D0;
+}
+
+/* Table styling */
+.table-view {
+    -fx-background-color: -fx-secondary-color;
+    background-color: #FFFFFF;
+    -fx-background-radius: 4px;
+    border-radius: 4px;
+    -fx-border-color: -fx-medium-grey;
+    border-color: #E0E0E0;
+    -fx-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.table-view .column-header {
+    -fx-background-color: -fx-primary-color;
+    background-color: #197C77;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    color: white;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: derive(-fx-primary-light, 50%);
+    background-color: #93d6d2; /* Approximation for standard CSS */
+}
+
+/* Timetable specific styling */
+.timetable-cell {
+    -fx-padding: 8px;
+    -fx-alignment: center;
+    -fx-wrap-text: true;
+    -fx-border-color: -fx-medium-grey;
+    -fx-border-width: 0.5px;
+}
+
+.timetable-header-cell {
+    -fx-background-color: -fx-primary-dark;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.timetable-time-cell {
+    -fx-background-color: derive(-fx-primary-color, 70%);
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-dark;
+}
+
+.theory-session {
+    -fx-background-color: derive(lightblue, 20%);
+}
+
+.practical-session {
+    -fx-background-color: derive(lightgreen, 20%);
+}
+
+.timetable-empty-cell {
+    -fx-background-color: #f8f8f8;
+}
+
+/* Dashboard cards */
+.dashboard-card {
+    -fx-background-color: -fx-light-grey;
+    background-color: #F5F5F5;
+    -fx-background-radius: 8px;
+    border-radius: 8px;
+    -fx-padding: 15px;
+    padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 4, 0, 0, 0);
+}
+
+/* Timetable dashboard card */
+.timetable-dashboard-card {
+    -fx-background-color: linear-gradient(to bottom right, derive(-fx-light-grey, 15%), derive(-fx-light-grey, -5%));
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 4, 0, 0, 0);
+}
+
+.timetable-card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-dark;
+}
+
+.timetable-card-count {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-color;
+}
+
+/* TitledPane styling */
+.titled-pane {
+    -fx-text-fill: -fx-primary-dark;
+    color: #0A5A56;
+}
+
+.titled-pane > .title {
+    -fx-background-color: -fx-light-grey;
+    background-color: #F5F5F5;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.titled-pane > .title:hover {
+    -fx-background-color: derive(-fx-light-grey, -5%);
+    background-color: #e8e8e8; /* Approximation for standard CSS */
+}
+
+/* Tab Pane styling */
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: -fx-light-grey;
+    background-color: #F5F5F5;
+}
+
+.tab-pane .tab {
+    -fx-background-color: -fx-medium-grey;
+    background-color: #E0E0E0;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: -fx-primary-color;
+    background-color: #197C77;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: white;
+    color: white;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+/* Status label */
+.status-label {
+    -fx-text-fill: white;
+    color: white;
+    -fx-font-size: 12px;
+    font-size: 12px;
+    -fx-opacity: 0.9;
+    opacity: 0.9;
+}
+
+/* Profile picture styling - Simplified */
+.profile-picture-container {
+    -fx-alignment: center;
+    -fx-padding: 0;
+}
+
+.profile-image {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+}
+
+.profile-image-large {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+}
+
+.profile-circle {
+    -fx-stroke: white;
+    -fx-stroke-width: 2;
+    -fx-fill: transparent;
+}
+
+.profile-circle-large {
+    -fx-stroke: -fx-primary-color;
+    -fx-stroke-width: 3;
+    -fx-fill: transparent;
+}
+
+.profile-picture-edit {
+    -fx-border-color: -fx-light-grey;
+    -fx-border-radius: 10px;
+    -fx-padding: 15px;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+}
+
+.picture-button {
+    -fx-background-color: -fx-primary-light;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-padding: 8 15 8 15;
+}
+
+.picture-button:hover {
+    -fx-background-color: derive(-fx-primary-light, 20%);
+}
+
+.section-header {
+    -fx-text-fill: -fx-primary-dark;
+    color: #0A5A56;
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.section-description {
+    -fx-text-fill: -fx-dark-grey;
+    color: #888888;
+    -fx-font-style: italic;
+    font-style: italic;
+}
