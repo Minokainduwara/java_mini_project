@@ -43,32 +43,42 @@ public class LectureController {
 
     @FXML
     private void handleProfileButton(ActionEvent event) {
+        System.out.println("Profile button pressed");
         loadPage("/FXML/Lecturer/Profile");
     }
 
     @FXML
     private void handleHomeButton(ActionEvent event) {
+        System.out.println("Home button pressed");
+    }
 
+    @FXML
+    private void handleLectureMaterialButton(ActionEvent event) {
+        System.out.println("Lecture material button pressed");
+        loadPage("/FXML/Lecturer/LectureMaterial");
     }
 
     @FXML
     private void handleCourseModuleButton(ActionEvent event) {
+        System.out.println("Course module button pressed");
         loadPage("/FXML/Lecturer/CourseModule");
     }
 
     @FXML
     private void handleNoticesButton(ActionEvent event) {
+        System.out.println("Notices button pressed");
         loadPage(("/FXML/Lecturer/Notices"));
     }
 
     @FXML
     private void handleStudentDetailsButton(ActionEvent event) {
+        System.out.println("Student details button pressed");
         loadPage(("/FXML/Lecturer/StudentDetails"));
     }
 
     @FXML
     private void handleLogOutButton(ActionEvent event) {
-
+        System.out.println("Logout button pressed");
     }
 
 }
