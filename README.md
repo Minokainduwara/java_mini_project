@@ -45,10 +45,10 @@ A comprehensive Java + MySQL-based platform built for the **Faculty of Technolog
 ### 🔐 Default Login Credentials
 | Role              | Username   | Password   |
 |-------------------|------------|------------|
-| Admin             | admin      | admin      |
-| Lecturer          | lecturer   | lecturer   |
-| Technical Officer | technical  | technical  |
-| Student           | student    | student    |
+| Admin             | admin      | admin123   |
+| Lecturer          | kamal      | pass123    |
+| Technical Officer | amara      | pass123    |
+| Student           | ICT19001   | pass123    |
 
 ---
 
