@@ -1,5 +1,6 @@
 package com.example.app.Controllers;
 
+
 import com.example.app.Models.User;
 import com.example.app.Services.LoginService;
 import com.example.app.Util.FormUtil;
@@ -7,23 +8,31 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+
 public class LoginController {
 
     @FXML
-    private TextField usernameField;
+    private TextField userNameField;
 
     @FXML
-    private PasswordField passwordField;
+    private PasswordField PasswordField;
 
     @FXML
-    private Button loginButton;
-
+    private Button LoginBtn;
+    
+    @FXML
+    private Button CancelBtn;
+    
+    @FXML
+    private Label loginErrormsg;
+    
     @FXML
     private CheckBox rememberMeCheckbox;
     
@@ -36,14 +45,14 @@ public class LoginController {
     }
 
     @FXML
-    public void handleLogin(ActionEvent event) {
+    public void LoginBtnOnAction(ActionEvent event) {
         // Get user input
-        String username = usernameField.getText();
-        String password = passwordField.getText();
+        String username = userNameField.getText();
+        String password = PasswordField.getText();
 
         // Validate input
         if (username.isEmpty() || password.isEmpty()) {
-            showError("Please enter both username and password");
+            loginErrormsg.setText("Please enter both username and password");
             return;
         }
 
@@ -52,32 +61,24 @@ public class LoginController {
 
         if (user != null) {
             // Authentication successful
-            // Save preferences if "Remember me" is checked
-            if (rememberMeCheckbox.isSelected()) {
-                saveUserPreferences(username);
-            }
-
+            loginErrormsg.setText("");
+            
             // Navigate to appropriate dashboard based on user role
             navigateToDashboard(user);
         } else {
-            showError("Invalid username or password");
+            loginErrormsg.setText("Invalid username or password");
         }
     }
-
+    
     @FXML
-    public void handleForgotPassword(ActionEvent event) {
-        // TODO: Implement forgot password logic
-        System.out.println("Forgot password clicked");
-    }
-
-    private void saveUserPreferences(String username) {
-        // TODO: Save username to preferences
-        System.out.println("Saving preferences for: " + username);
+    public void CancelBtnOnAction(ActionEvent event) {
+        Stage stage = (Stage) CancelBtn.getScene().getWindow();
+        stage.close();
     }
 
     private void navigateToDashboard(User user) {
         try {
-            Stage currentStage = (Stage) loginButton.getScene().getWindow();
+            Stage currentStage = (Stage) LoginBtn.getScene().getWindow();
             String fxmlPath;
             
             // Determine which dashboard to load based on user role
@@ -107,6 +108,9 @@ public class LoginController {
     }
 
     private void showError(String message) {
+        loginErrormsg.setText(message);
+        
+        // You can also keep the alert for more serious errors
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Login Error");
         alert.setHeaderText(null);

@@ -3,9 +3,11 @@ package com.example.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.Parent;
 import javafx.stage.Stage;
+import java.io.IOException;
+
 
 
 import static com.example.app.Util.DatabaseInitializer.initializeDatabase;
@@ -18,13 +20,14 @@ public class App extends Application {
             Parent root = loader.load();
 
             primaryStage.setTitle("University Management System - Login");
-            primaryStage.setScene(new Scene(root, 900, 600));
+            primaryStage.setScene(new Scene(root, 600, 400));
             primaryStage.show();
         } catch (Exception e) {
             System.err.println("Error starting application: " + e.getMessage());
             e.printStackTrace();
             throw e; // Re-throw the exception to ensure proper shutdown
         }
+
     }
 
     public static void main(String[] args) {

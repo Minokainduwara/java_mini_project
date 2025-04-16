@@ -10,11 +10,13 @@ module com.example.app {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+
     requires java.sql;
     
     // Add required modules for image processing
     requires java.desktop;
     requires javafx.swing;
+
 
     opens com.example.app to javafx.fxml;
     exports com.example.app;

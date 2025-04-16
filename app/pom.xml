@@ -14,12 +14,20 @@
         <junit.version>5.10.2</junit.version>
     </properties>
 
+
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>21</version>
         </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version> <!-- or latest available -->
+        </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
@@ -77,6 +85,7 @@
             <artifactId>bootstrapfx-core</artifactId>
             <version>0.4.0</version>
         </dependency>
+
         <dependency>
             <groupId>eu.hansolo</groupId>
             <artifactId>tilesfx</artifactId>

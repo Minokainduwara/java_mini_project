@@ -1,94 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx"
-           xmlns:fx="http://javafx.com/fxml"
-           fx:controller="com.example.app.Controllers.LoginController"
-           prefHeight="600.0" prefWidth="900.0"
-           stylesheets="@../Styles/login.css">
-
-    <BorderPane>
-        <!-- Left side panel with branding and gradient background -->
-        <left>
-            <VBox styleClass="left-panel" alignment="CENTER" spacing="15" minWidth="350">
-                <padding><Insets top="50" right="30" bottom="50" left="30"/></padding>
-
-                <ImageView fitWidth="120" preserveRatio="true">
-                    <Image url="@../Images/university_logo.png"/>
-                    <effect>
-                        <DropShadow color="#19797763" radius="10" />
-                    </effect>
-                </ImageView>
-
-                <Label text="University" styleClass="logo-text">
-                    <font>
-                        <Font name="System Bold" size="28"/>
-                    </font>
-                </Label>
-
-                <Label text="Management System" styleClass="logo-subtext">
-                    <font>
-                        <Font name="System" size="18"/>
-                    </font>
-                </Label>
-
-                <Separator styleClass="divider" maxWidth="100"/>
-
-                <Label text="Welcome Back" styleClass="welcome-text">
-                    <font>
-                        <Font name="System Bold" size="22"/>
-                    </font>
-                </Label>
-
-                <Label text="Login to access your dashboard" styleClass="welcome-subtext" wrapText="true" textAlignment="CENTER">
-                    <font>
-                        <Font name="System" size="14"/>
-                    </font>
-                </Label>
-            </VBox>
-        </left>
-
-        <!-- Right side with login form -->
-        <center>
-            <StackPane>
-                <VBox styleClass="login-panel" alignment="CENTER" spacing="25" maxWidth="450">
-                    <padding><Insets top="60" right="50" bottom="60" left="50"/></padding>
-
-                    <Label text="Sign In" styleClass="signin-text">
-                        <font>
-                            <Font name="System Bold" size="26"/>
-                        </font>
-                    </Label>
-
-                    <VBox spacing="10">
-                        <Label text="Username" styleClass="field-label"/>
-                        <TextField fx:id="usernameField" promptText="Enter your username" styleClass="text-field"/>
-                    </VBox>
-
-                    <VBox spacing="10">
-                        <Label text="Password" styleClass="field-label"/>
-                        <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="text-field"/>
-                    </VBox>
-
-                    <HBox alignment="CENTER_RIGHT">
-                        <Hyperlink text="Forgot Password?" styleClass="forgot-password" onAction="#handleForgotPassword"/>
-                    </HBox>
-
-                    <Button fx:id="loginButton" text="LOGIN" styleClass="login-button" onAction="#handleLogin"
-                            prefHeight="40" prefWidth="200" defaultButton="true"/>
-
-                    <HBox alignment="CENTER" spacing="10">
-                        <CheckBox fx:id="rememberMeCheckbox" styleClass="remember-me"/>
-                        <Label text="Remember me" styleClass="remember-me-text"/>
-                    </HBox>
-                </VBox>
-            </StackPane>
-        </center>
-    </BorderPane>
-</StackPane>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.LoginController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Login/TECLMS.png" />
+               </image></ImageView>
+            <Label layoutX="52.0" layoutY="362.0" text="©️ 2025 Ones&amp;Zeros  ">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="59.0" layoutY="376.0" text="All Rights Reserved">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="200.0" prefHeight="400.0" prefWidth="398.0">
+         <children>
+            <ImageView fitHeight="91.0" fitWidth="134.0" layoutX="154.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="35.0" layoutY="176.0" text="Username">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="234.0" text="Password">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userNameField" layoutX="175.0" layoutY="175.0" prefHeight="25.0" prefWidth="180.0" promptText="Username" style="-fx-background-color: #f8f8ff;" />
+            <PasswordField fx:id="PasswordField" layoutX="175.0" layoutY="232.0" prefHeight="25.0" prefWidth="180.0" promptText="Password" style="-fx-background-color: #f8f8ff;" />
+            <Label fx:id="loginErrormsg" layoutX="116.0" layoutY="281.0" textFill="#f80909" />
+            <Button fx:id="LoginBtn" layoutX="89.0" layoutY="332.0" mnemonicParsing="false" onAction="#LoginBtnOnAction" style="-fx-background-color: #1977c7;" text="Log In" />
+            <Button fx:id="CancelBtn" layoutX="260.0" layoutY="332.0" mnemonicParsing="false" onAction="#CancelBtnOnAction" style="-fx-background-color: #dc143c;" text="Cancel" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
