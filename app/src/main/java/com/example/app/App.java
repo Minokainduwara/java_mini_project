@@ -1,5 +1,6 @@
 package com.example.app;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,22 +8,34 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class App extends Application {
 
-    public static void main(String[] args) {
-        launch(args); // Correctly launching the JavaFX application
+
+import static com.example.app.Util.DatabaseInitializer.initializeDatabase;
+
+public class App extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+            Parent root = loader.load();
+
+            primaryStage.setTitle("University Management System - Login");
+            primaryStage.setScene(new Scene(root, 600, 400));
+            primaryStage.show();
+        } catch (Exception e) {
+            System.err.println("Error starting application: " + e.getMessage());
+            e.printStackTrace();
+            throw e; // Re-throw the exception to ensure proper shutdown
+        }
+
     }
 
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        // Correctly loading the FXML file
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
-
-        Parent root = fxmlLoader.load();
-        Scene scene = new Scene(root, 600, 400);
-
-        primaryStage.setTitle("TECLMS");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public static void main(String[] args) {
+        if (initializeDatabase()) {
+            System.out.println("Database initialized successfully!😊");
+        } else {
+            System.err.println("Failed to initialize database. Check logs for details.");
+        }
+        launch(args);
     }
 }
