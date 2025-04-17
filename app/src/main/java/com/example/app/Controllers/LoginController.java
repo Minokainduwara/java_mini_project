@@ -62,14 +62,31 @@ public class LoginController {
             ResultSet result = statement.executeQuery();
 
             if (result.next()) {
-                String role = result.getString("role"); // e.g., Admin, Student, etc.
-                loginErrormsg.setText("Login successful! Role: " + role);
+                String role = result.getString("role").toLowerCase().trim(); // e.g., admin, student, etc.
+                String fxmlFile;
 
-                // Example: Load a new dashboard view
-                // Uncomment and customize this if you have a dashboard.fxml
-                /*
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/Views/Dashboard.fxml"));
+                switch (role) {
+                    case "admin":
+                        fxmlFile = "/Fxml/Admin/Admin.fxml";
+                        break;
+                    case "student":
+                        fxmlFile = "/Fxml/Student/Student.fxml";
+                        break;
+                    case "technicalofficer":
+                        fxmlFile = "/Fxml/TechnicalOfficer/TechnicalOfficer.fxml";
+                        break;
+                    case "lecturer":
+                        fxmlFile = "/Fxml/Lecturer/Lecturer.fxml";
+                        break;
+                    default:
+                        loginErrormsg.setText("Unknown role: " + role);
+                        return;
+                }
+
+                // Load the appropriate dashboard
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
                 Parent root = loader.load();
+
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.show();
@@ -77,17 +94,15 @@ public class LoginController {
                 // Close current login window
                 Stage currentStage = (Stage) LoginBtn.getScene().getWindow();
                 currentStage.close();
-                */
 
             } else {
                 loginErrormsg.setText("Invalid login credentials");
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Database error occurred" + e.getMessage());
-            loginErrormsg.setText("Database error occurred" + e.getMessage());
-            System.out.println("Database error occurred" + e.getMessage());
+            e.printStackTrace(); // For debugging
+            loginErrormsg.setText("Something went wrong while logging in.");
+            System.out.println(e.getMessage());
         }
     }
 }

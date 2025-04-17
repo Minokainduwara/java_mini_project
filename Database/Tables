@@ -27,4 +27,9 @@ INSERT INTO User (username, password, name, email, phone, role)
 VALUES ('admin', 'admin123', 'System Administrator', 'admin@ruhuna.ac.lk', '0770000000', 'Admin');
 
 
+UPDATE User
+SET profile_picture = '/Users/kavindiwickramasinghe/Desktop/mini_project/java_mini_project/app/src/main/resources/Images/Admin/sample3.jpg'
+WHERE username = 'admin';
+
+
 
