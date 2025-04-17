@@ -135,7 +135,7 @@ The system includes sample data for:
 
 Make sure:
 - ✅ MySQL Server is running and accessible 
-- Create database iff not exists (faculty_db) 
+- ✅ Create database iff not exists (faculty_db) 
 - 🔄 Java version is compatible with the project (JDK 21 recommended)  
 - 🔑 DB credentials are correctly configured in `config.properties`
 - 📦 All Maven dependencies are properly resolved
