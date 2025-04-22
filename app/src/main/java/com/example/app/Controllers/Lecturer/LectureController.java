@@ -15,7 +15,7 @@ public class LectureController {
     private BorderPane mainPane;
 
     private void loadPage(String page) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test_java_pro/" +page + ".fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/" +page + ".fxml"));
         try {
             Pane view = loader.load();
             mainPane.setCenter(view);
@@ -42,44 +42,44 @@ public class LectureController {
 
 
     @FXML
-    private void profileButton(ActionEvent event) {
+    private void handleProfileButton(ActionEvent event) {
         loadPage("Profile");
         System.out.println("Profile button pressed");
     }
 
     @FXML
-    private void homeButton(ActionEvent event) {
+    private void handleHomeButton(ActionEvent event) {
 
         System.out.println("Home button pressed");
     }
 
     @FXML
-    private void courseModuleButton(ActionEvent event) {
+    private void handleCourseModuleButton(ActionEvent event) {
         System.out.println("Course module button pressed");
         loadPage("CourseModule");
     }
 
     @FXML
-    private void noticesButton(ActionEvent event) {
+    private void handleNoticesButton(ActionEvent event) {
         System.out.println("Notices button pressed");
         loadPage("Notices");
     }
 
     @FXML
-    private void studentDetailsButton(ActionEvent event) {
+    private void handleStudentDetailsButton(ActionEvent event) {
         System.out.println("Student details button pressed");
         loadPage("StudentDetails");
     }
 
     @FXML
-    private void lectureMaterialButton(ActionEvent event) {
+    private void handleLectureMaterialButton(ActionEvent event) {
         System.out.println("Lecture material button pressed");
         loadPage("LectureMaterial");
     }
 
-    @FXML
-    private void logOutButton(ActionEvent event) {
+    //@FXML
+    //private void logOutButton(ActionEvent event) {
 
-    }
+    //}
 
 }
