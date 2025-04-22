@@ -15,6 +15,8 @@ module com.example.app {
 
     opens com.example.app.Controllers to javafx.fxml;
     opens com.example.app.Controllers.Admin to javafx.fxml;
+    opens com.example.app.Controllers.Lecturer to javafx.fxml;
+
     opens com.example.app to javafx.fxml;
     exports com.example.app;
     exports com.example.app.Controllers.Admin to javafx.fxml;
