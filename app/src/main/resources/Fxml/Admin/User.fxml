@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.app.Controllers.Admin.User"
-            prefHeight="700.0" prefWidth="900.0">
-
+<AnchorPane fx:id="userName" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Admin.User">
+   <children>
+      <Pane layoutX="183.0" layoutY="36.0" prefHeight="290.0" prefWidth="546.0" style="-fx-background-color: teal;">
+         <children>
+            <Label layoutX="60.0" layoutY="30.0" prefHeight="17.0" prefWidth="55.0" text="Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="70.0" prefHeight="17.0" prefWidth="55.0" text="Reg No:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="110.0" prefHeight="17.0" prefWidth="55.0" text="Role">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="150.0" prefHeight="19.0" prefWidth="75.0" text="mobile no:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="190.0" prefHeight="19.0" prefWidth="75.0" text="department">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userNameField" layoutX="300.0" layoutY="27.0" />
+            <TextField fx:id="RegNoField" layoutX="300.0" layoutY="67.0" />
+            <SplitMenuButton fx:id="userRoleField" layoutX="300.0" layoutY="107.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="157.0" text="Role">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Admin" />
+                  <MenuItem mnemonicParsing="false" text="Student" />
+                  <MenuItem mnemonicParsing="false" text="Technical Officer" />
+                  <MenuItem mnemonicParsing="false" text="Lecturer" />
+               </items>
+            </SplitMenuButton>
+            <TextField fx:id="contactNoField" layoutX="300.0" layoutY="147.0" />
+            <SplitMenuButton fx:id="depField" layoutX="300.0" layoutY="186.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="157.0" text="Department">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="ET" />
+                  <MenuItem mnemonicParsing="false" text="BST" />
+                  <MenuItem mnemonicParsing="false" text="ICT" />
+                  <MenuItem mnemonicParsing="false" text="Multi" />
+               </items>
+            </SplitMenuButton>
+            <Button fx:id="addBtn" layoutX="62.0" layoutY="237.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="ADD" />
+            <Button fx:id="updateBtn" layoutX="228.0" layoutY="238.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="UPDATE" />
+            <Button fx:id="deleteBtn" layoutX="397.0" layoutY="237.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="DELETE" />
+         </children>
+      </Pane>
+      <TableView fx:id="tableView" layoutX="33.0" layoutY="364.0" prefHeight="290.0" prefWidth="850.0" onMouseClicked="#handleTableRowClick">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="51.0" text="ID" />
+            <TableColumn fx:id="userNameColumn" prefWidth="99.0" text="Username" />
+            <TableColumn fx:id="roleColumn" prefWidth="99.0" text="Role" />
+            <TableColumn fx:id="departmentColumn" prefWidth="99.0" text="Department" />
+            <TableColumn fx:id="regNoColumn" prefWidth="99.0" text="Reg No" />
+            <TableColumn fx:id="contactColumn" prefWidth="99.0" text="Contact" />
+         </columns>
+      </TableView>
+   </children>
 </AnchorPane>
