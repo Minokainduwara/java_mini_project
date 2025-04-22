@@ -5,73 +5,72 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Lecturer.LectureController">
     <children>
-        <BorderPane fx:id="mainPane" prefHeight="700.0" prefWidth="1200.0">
-            <left>
-                <Pane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: #197c77;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: #197c77;">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="170.0" prefHeight="30.0" prefWidth="150.0" />
+                <Button fx:id="viewProfile" layoutX="86.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleViewProfile" prefHeight="39.0" prefWidth="128.0" style="-fx-background-radius: 10px;" text="View Profile" />
+                <Button layoutX="106.0" layoutY="637.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="88.0" style="-fx-background-radius: 10px;" text="Log Out" />
+                <VBox layoutX="25.0" layoutY="279.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10px;">
                     <children>
-                        <Label fx:id="lecturerName" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="190.0" prefHeight="30.0" prefWidth="150.0" />
-                        <Button fx:id="profileButton" layoutX="86.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleProfileButton" prefHeight="39.0" prefWidth="128.0" style="-fx-background-radius: 10px;" text="View Profile" />
-                        <Button layoutX="106.0" layoutY="651.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="88.0" style="-fx-background-radius: 10px;" text="Log Out" />
-                        <VBox layoutX="25.0" layoutY="292.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10px;">
-                            <children>
-                                <Button fx:id="homeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleHomeButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Home" textFill="WHITE">
-                                    <font>
-                                        <Font size="13.0" />
-                                    </font>
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                    <VBox.margin>
-                                        <Insets left="10.0" top="40.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button fx:id="lectureMaterialButton" mnemonicParsing="false" onAction="#handleLectureMaterialButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Lecture Materials" textFill="WHITE">
-                                    <VBox.margin>
-                                        <Insets left="10.0" top="20.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button fx:id="courseModuleButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCourseModuleButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Course Module" textFill="WHITE">
-                                    <font>
-                                        <Font size="13.0" />
-                                    </font>
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                    <VBox.margin>
-                                        <Insets left="10.0" top="20.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button fx:id="noticesButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNoticesButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Notices" textFill="WHITE">
-                                    <font>
-                                        <Font size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets left="10.0" top="20.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button fx:id="studentDetailsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleStudentDetailsButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Student Details" textAlignment="CENTER" textFill="WHITE">
-                                    <font>
-                                        <Font size="13.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets left="10.0" top="20.0" />
-                                    </VBox.margin>
-                                </Button>
-                            </children>
-                        </VBox>
-                        <ImageView fitHeight="115.0" fitWidth="116.0" layoutX="92.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
-                        <Circle fill="DODGERBLUE" layoutX="150.0" layoutY="125.0" radius="56.5" stroke="BLACK" strokeType="INSIDE" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Home" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets left="10.0" top="40.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="lectureMaterialButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLectureMaterialButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Lecture Material" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets left="10.0" top="20.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="courseModuleButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCourseModuleButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Course Module" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets left="10.0" top="20.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="noticesButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleNoticesButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Notices" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="10.0" top="20.0" />
+                            </VBox.margin>
+                        </Button>
+                        <Button fx:id="studentDetailsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleStudentDetailsButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Student Details" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets left="10.0" top="20.0" />
+                            </VBox.margin>
+                        </Button>
                     </children>
-                </Pane>
-            </left>
-        </BorderPane>
+                </VBox>
+                <ImageView fitHeight="115.0" fitWidth="116.0" layoutX="92.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="paneCenter" layoutX="300.0" prefHeight="700.0" prefWidth="900.0" />
     </children>
 </AnchorPane>
