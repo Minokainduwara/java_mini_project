@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private Connection databaseLink;
+    private static Connection databaseLink;
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         //String databaseName = "LMS";
         String databaseUser = "root";  // Default XAMPP MySQL user
         String databasePassword = "";  // Default root password for XAMPP (if you haven't set one)
