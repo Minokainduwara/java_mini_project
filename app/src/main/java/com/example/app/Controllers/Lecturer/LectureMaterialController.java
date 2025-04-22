@@ -25,6 +25,9 @@ public class LectureMaterialController {
     private TextArea descriptionArea;
 
     @FXML
+    private ComboBox<String> weekComboBox;
+
+    @FXML
     private ListView<String> materialListView;
 
     private File uploadedFile;
@@ -38,6 +41,11 @@ public class LectureMaterialController {
     @FXML
     private void initialize() {
         loadMaterialsFromDatabase();
+
+        for (int i = 1; i <= 15; i++) {
+            weekComboBox.getItems().add("Week " + i);
+        }
+
     }
 
     @FXML
@@ -56,6 +64,7 @@ public class LectureMaterialController {
     private void handleSaveMaterial() {
         String title = titleField.getText();
         String description = descriptionArea.getText();
+        String selectedWeek = weekComboBox.getValue();
         String filePath = uploadedFile != null ? uploadedFile.getAbsolutePath() : "";
 
         if (title.isEmpty() || filePath.isEmpty()) {
@@ -64,17 +73,21 @@ public class LectureMaterialController {
             return;
         }
 
-        String sql = "INSERT INTO lecture_materials (title, description, file_path) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO lecture_materials (title, description, file_path, week) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, title);
             stmt.setString(2, description);
             stmt.setString(3, filePath);
+            //stmt.setInt(4, Session.userId);
+            stmt.setString(4, selectedWeek);
             stmt.executeUpdate();
 
             titleField.clear();
             descriptionArea.clear();
             uploadedFile = null;
+            weekComboBox.getItems().clear();
+
             loadMaterialsFromDatabase();
         } catch (SQLException e) {
             e.printStackTrace();
