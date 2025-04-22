@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -12,13 +13,13 @@ import java.io.IOException;
 
 public class LectureController {
     @FXML
-    private BorderPane mainPane;
+    private AnchorPane paneCenter;
 
     private void loadPage(String page) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/app/" +page + ".fxml"));
         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Lecturer/" + page + ".fxml"));
             Pane view = loader.load();
-            mainPane.setCenter(view);
+            paneCenter.getChildren().setAll(view);
         } catch (IOException e) {
             System.out.println("Failed to load: " + page);
             e.printStackTrace();
@@ -36,22 +37,11 @@ public class LectureController {
 
 
     @FXML
-    private void initialize() {
-        userName.setText("User Name: " + userName.getText());
-    }
-
-
-    @FXML
-    private void handleProfileButton(ActionEvent event) {
+    private void handleViewProfile(ActionEvent event) {
         loadPage("Profile");
         System.out.println("Profile button pressed");
     }
 
-    @FXML
-    private void handleHomeButton(ActionEvent event) {
-
-        System.out.println("Home button pressed");
-    }
 
     @FXML
     private void handleCourseModuleButton(ActionEvent event) {
