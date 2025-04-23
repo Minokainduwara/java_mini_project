@@ -15,65 +15,55 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Lecturer.LectureMaterialController">
     <children>
-        <VBox layoutX="103.0" layoutY="42.0" prefHeight="640.0" prefWidth="694.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;">
+        <VBox layoutX="103.0" layoutY="42.0" prefHeight="627.0" prefWidth="694.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;">
             <children>
-                <Label prefHeight="47.0" prefWidth="256.0" text="Upload Lecture Materials" textFill="WHITE">
+                <Label text="Upload Lecture Materials" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Label>
-                <TextField fx:id="titleField" prefHeight="26.0" prefWidth="602.0" promptText="Enter Title" style="-fx-background-radius: 10px;">
+                <TextField fx:id="titleField" promptText="Enter Title" style="-fx-background-radius: 10px;">
                     <VBox.margin>
                         <Insets left="20.0" right="20.0" top="10.0" />
                     </VBox.margin>
                 </TextField>
-                <TextArea fx:id="descriptionArea" prefHeight="77.0" prefWidth="614.0" promptText="Enter Description">
+                <TextArea fx:id="descriptionArea" promptText="Enter Description">
                     <VBox.margin>
                         <Insets left="20.0" right="20.0" top="20.0" />
                     </VBox.margin>
                 </TextArea>
-                <ComboBox fx:id="weekComboBox" prefWidth="200.0" promptText="Select Week">
+                <ComboBox fx:id="weekComboBox" promptText="Select Week">
                     <VBox.margin>
                         <Insets left="20.0" right="20.0" top="15.0" />
                     </VBox.margin>
                 </ComboBox>
-
                 <HBox prefHeight="47.0" prefWidth="614.0">
                     <children>
-                        <Button fx:id="uploadMaterialButton" mnemonicParsing="false" onAction="#handleUploadFile" prefHeight="35.0" prefWidth="130.0" text="Upload Material">
-                            <HBox.margin>
-                                <Insets left="157.0" />
-                            </HBox.margin>
-                        </Button>
-                        <Button fx:id="saveMaterialButton" mnemonicParsing="false" onAction="#handleSaveMaterial" prefHeight="35.0" prefWidth="130.0" text="Save Material">
-                            <HBox.margin>
-                                <Insets left="40.0" />
-                            </HBox.margin>
-                        </Button>
+                        <Button fx:id="uploadMaterialButton" onAction="#handleUploadFile" prefHeight="35.0" prefWidth="130.0" text="Upload Material">
+                     <HBox.margin>
+                        <Insets left="137.0" />
+                     </HBox.margin></Button>
+                        <Button fx:id="saveMaterialButton" onAction="#handleSaveMaterial" prefHeight="35.0" prefWidth="130.0" text="Save Material">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin></Button>
                     </children>
                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" top="20.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </VBox.margin>
                 </HBox>
-                <Separator prefWidth="200.0">
-                    <VBox.margin>
-                        <Insets top="20.0" />
-                    </VBox.margin>
-                </Separator>
-                <Label prefHeight="47.0" prefWidth="256.0" text="Lecture Materials List" textFill="WHITE">
+                <Separator />
+                <Label text="Lecture Materials List" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
-                    <VBox.margin>
-                        <Insets top="10.0" />
-                    </VBox.margin>
                 </Label>
-                <ListView fx:id="materialListView" prefHeight="176.0" prefWidth="624.0" style="-fx-background-radius: 10px;">
+                <ListView fx:id="materialListView" style="-fx-background-radius: 10px;">
                     <VBox.margin>
                         <Insets left="20.0" right="20.0" top="10.0" />
                     </VBox.margin>
                 </ListView>
-                <Button fx:id="deleteMaterialButton" mnemonicParsing="false" onAction="#handleDeleteMaterial" prefHeight="35.0" prefWidth="150.0" text="Delete Selected Material">
+                <Button fx:id="deleteMaterialButton" onAction="#handleDeleteMaterial" text="Delete Selected Material">
                     <VBox.margin>
                         <Insets left="252.0" top="20.0" />
                     </VBox.margin>
