@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="70.0" layoutY="52.0" prefHeight="603.0" prefWidth="768.0" style="-fx-background-color: teal green; -fx-background-radius: 10px;">
+         <children>
+            <TextArea layoutX="376.0" layoutY="44.0" prefHeight="514.0" prefWidth="362.0" style="-fx-background-radius: 20px;" />
+            <Text fill="WHITE" layoutX="90.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOTICE" wrappingWidth="209.53726196289062">
+               <font>
+                  <Font name="System Bold" size="51.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+</AnchorPane>

@@ -3,8 +3,17 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="ms-21" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://C:/javafx/javafx-sdk-24/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://C:/javafx/javafx-sdk-24/lib" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
