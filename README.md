@@ -145,6 +145,7 @@ Common issues:
 - For JavaFX errors, ensure the JavaFX runtime is properly configured
 - For configuration issues, check the path to `config.properties`
 
+
 ---
 
 ## 🙋‍♂️ Team Members
