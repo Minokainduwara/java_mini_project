@@ -1,5 +1,6 @@
 package com.example.app.Controllers;
 
+import com.example.app.Controllers.Lecturer.LectureController;
 import com.example.app.Models.DatabaseConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,7 +63,9 @@ public class LoginController {
             ResultSet result = statement.executeQuery();
 
             if (result.next()) {
+                int userId = result.getInt("id");
                 String role = result.getString("role").toLowerCase().trim(); // e.g., admin, student, etc.
+                String userName = result.getString("name");
                 String fxmlFile;
 
                 switch (role) {
@@ -86,6 +89,11 @@ public class LoginController {
                 // Load the appropriate dashboard
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
                 Parent root = loader.load();
+
+                if ("lecturer".equals(role)) {
+                    LectureController controller = loader.getController();
+                    controller.setUserId(userId);
+                }
 
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
