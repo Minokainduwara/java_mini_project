@@ -14,6 +14,7 @@ public class DatabaseUtil {
     private static final String USER = "root";
     private static final String PASSWORD = "2003";
     
+    
     private static Connection connection;
     private static boolean loggingEnabled = true; // Flag to control logging
     
