@@ -9,50 +9,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
-
 
 /**
  * Utility class for database initialization and sample data loading
  */
 public class DatabaseInitializer {
 
-    // Config file path
-    private static final String CONFIG_FILE = "/config/config.properties";
-    
-    // SQL script path
-    private static String SQL_SCRIPT_PATH;
-    
-    // Load configuration properties
-    static {
-        loadConfigProperties();
-    }
-    
-    /**
-     * Loads configuration properties from the config file
-     */
-    private static void loadConfigProperties() {
-        Properties properties = new Properties();
-        try (InputStream inputStream = DatabaseInitializer.class.getResourceAsStream(CONFIG_FILE)) {
-            if (inputStream != null) {
-                properties.load(inputStream);
-                
-                // Load SQL script path
-                SQL_SCRIPT_PATH = properties.getProperty("path.sql.init", "/faculty_db.sql");
-                
-                System.out.println("Database initialization properties loaded successfully");
-            } else {
-                System.err.println("Failed to load config.properties file");
-                // Set default value
-                SQL_SCRIPT_PATH = "/faculty_db.sql";
-            }
-        } catch (IOException e) {
-            System.err.println("Error loading config properties: " + e.getMessage());
-            e.printStackTrace();
-            // Set default value in case of error
-            SQL_SCRIPT_PATH = "/faculty_db.sql";
-        }
-    }
+    // Hardcoded SQL script path - no more config file dependency
+    private static final String SQL_SCRIPT_PATH = "/faculty_db.sql";
 
     /**
      * Initializes the database with tables and sample data
@@ -168,5 +132,4 @@ public class DatabaseInitializer {
             return false;
         }
     }
-
 }

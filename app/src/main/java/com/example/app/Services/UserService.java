@@ -22,75 +22,16 @@ public class UserService {
     // Logger for standardized logging
     private static final Logger logger = new Logger(UserService.class.getSimpleName());
     
-    // Config file path
-    private static final String CONFIG_FILE = "/config/config.properties";
-    
-    // Fallback authentication credentials
-    private static String ADMIN_USERNAME;
-    private static String ADMIN_PASSWORD;
-    private static String LECTURER_USERNAME;
-    private static String LECTURER_PASSWORD;
-    private static String STUDENT_USERNAME;
-    private static String STUDENT_PASSWORD;
-    private static String TECHNICAL_OFFICER_USERNAME;
-    private static String TECHNICAL_OFFICER_PASSWORD;
-    private static String DEFAULT_PROFILE_IMAGE_PATH;
-    
-    // Load configuration properties
-    static {
-        loadConfigProperties();
-    }
-    
-    /**
-     * Loads configuration properties from the config file
-     */
-    private static void loadConfigProperties() {
-        Properties properties = new Properties();
-        try (InputStream inputStream = UserService.class.getResourceAsStream(CONFIG_FILE)) {
-            if (inputStream != null) {
-                properties.load(inputStream);
-                
-                // Load fallback authentication credentials
-                ADMIN_USERNAME = properties.getProperty("auth.fallback.admin.username", "admin");
-                ADMIN_PASSWORD = properties.getProperty("auth.fallback.admin.password", "admin");
-                LECTURER_USERNAME = properties.getProperty("auth.fallback.lecturer.username", "lecturer");
-                LECTURER_PASSWORD = properties.getProperty("auth.fallback.lecturer.password", "lecturer");
-                STUDENT_USERNAME = properties.getProperty("auth.fallback.student.username", "student");
-                STUDENT_PASSWORD = properties.getProperty("auth.fallback.student.password", "student");
-                TECHNICAL_OFFICER_USERNAME = properties.getProperty("auth.fallback.technicalOfficer.username", "technical");
-                TECHNICAL_OFFICER_PASSWORD = properties.getProperty("auth.fallback.technicalOfficer.password", "technical");
-                
-                // Load resource paths
-                DEFAULT_PROFILE_IMAGE_PATH = properties.getProperty("path.image.default_profile", "/Images/default_profile.png");
-                
-                logger.info("loadConfigProperties", "Configuration properties loaded successfully");
-            } else {
-                logger.error("loadConfigProperties", "Failed to load config.properties file");
-                // Set default values
-                ADMIN_USERNAME = "admin";
-                ADMIN_PASSWORD = "admin";
-                LECTURER_USERNAME = "lecturer";
-                LECTURER_PASSWORD = "lecturer";
-                STUDENT_USERNAME = "student";
-                STUDENT_PASSWORD = "student";
-                TECHNICAL_OFFICER_USERNAME = "technical";
-                TECHNICAL_OFFICER_PASSWORD = "technical";
-                DEFAULT_PROFILE_IMAGE_PATH = "/Images/default_profile.png";
-            }
-        } catch (IOException e) {
-            logger.error("loadConfigProperties", "Error loading config properties: " + e.getMessage(), e);
-            // Set default values in case of error
-            ADMIN_USERNAME = "admin";
-            ADMIN_PASSWORD = "admin";
-            LECTURER_USERNAME = "lecturer";
-            LECTURER_PASSWORD = "lecturer";
-            STUDENT_USERNAME = "student";
-            STUDENT_PASSWORD = "student";
-            TECHNICAL_OFFICER_USERNAME = "technical";
-            TECHNICAL_OFFICER_PASSWORD = "technical";
-            DEFAULT_PROFILE_IMAGE_PATH = "/Images/default_profile.png";
-        }
-    }
+    // Hardcoded authentication credentials - no config file needed
+    private static final String ADMIN_USERNAME = "admin";
+    private static final String ADMIN_PASSWORD = "admin123";
+    private static final String LECTURER_USERNAME = "kamal";
+    private static final String LECTURER_PASSWORD = "pass123";
+    private static final String STUDENT_USERNAME = "ICT19001";
+    private static final String STUDENT_PASSWORD = "pass123";
+    private static final String TECHNICAL_OFFICER_USERNAME = "amara";
+    private static final String TECHNICAL_OFFICER_PASSWORD = "pass123";
+    private static final String DEFAULT_PROFILE_IMAGE_PATH = "/Images/default_profile.png";
     
     /**
      * Custom Logger class for standardized logging

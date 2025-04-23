@@ -6,21 +6,21 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
     private Connection databaseLink;
+    
+    // Hardcoded database credentials
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/faculty_db";
+    private static final String DATABASE_USER = "root";
+    private static final String DATABASE_PASSWORD = "2003"; // Updated password
 
     public Connection getConnection() {
-        //String databaseName = "LMS";
-        String databaseUser = "root";  // Default XAMPP MySQL user
-        String databasePassword = "";  // Default root password for XAMPP (if you haven't set one)
-        String databaseUrl = "jdbc:mysql://localhost:3306/LMS";
-
         try {
             // Ensure the MySQL driver is loaded
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("MySQL Driver loaded successfully.");
 
             // Establish the connection
-            databaseLink = DriverManager.getConnection(databaseUrl, databaseUser, databasePassword);
-            System.out.println("Connection established successfully!");
+            databaseLink = DriverManager.getConnection(DATABASE_URL, DATABASE_USER, DATABASE_PASSWORD);
+            System.out.println("Connection established successfully to faculty_db!");
         } catch (SQLException e) {
             System.out.println("SQL Exception occurred while connecting to the database:");
             System.out.println("Error Code: " + e.getErrorCode());
