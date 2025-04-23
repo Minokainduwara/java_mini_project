@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #d9d9d9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.TechnicalOfficer.Attendence">
+   <children>
+      <AnchorPane layoutX="235.0" layoutY="178.0" prefHeight="288.0" prefWidth="464.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;">
+         <children>
+            <VBox layoutX="80.0" layoutY="53.0" prefHeight="150.0" prefWidth="130.0" style="-fx-background-color: #197c77;">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="72.0" text="Date" textFill="#eae1e1">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Course Code" textFill="#e4dcdc">
+                     <VBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="20.0" prefWidth="68.0" text="Student Id" textFill="#e7dede">
+                     <VBox.margin>
+                        <Insets left="10.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Attendence" textFill="#dfd2d2">
+                     <VBox.margin>
+                        <Insets left="10.0" top="15.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="210.0" layoutY="53.0" prefHeight="102.0" prefWidth="234.0" style="-fx-background-color: #197c77;" AnchorPane.topAnchor="53.0">
+               <children>
+                  <TextField style="-fx-background-radius: 10px;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField style="-fx-background-radius: 10px;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField style="-fx-background-radius: 10px;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <RadioButton layoutX="238.0" layoutY="176.0" mnemonicParsing="false" text="Yes" textFill="#ece1e1" />
+            <RadioButton layoutX="381.0" layoutY="176.0" mnemonicParsing="false" text="No" textFill="#dcc9c9" />
+            <Button layoutX="381.0" layoutY="230.0" mnemonicParsing="false" style="-fx-background-radius: 10px;" text="Update" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

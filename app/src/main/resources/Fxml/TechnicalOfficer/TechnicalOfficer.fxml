@@ -37,7 +37,7 @@
                </children>
             </VBox>
             <Button layoutX="86.0" layoutY="281.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="128.0" text="View Prifile" />
-            <Button layoutX="106.0" layoutY="650.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="88.0" text="Button" />
+            <Button layoutX="106.0" layoutY="650.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="88.0" text="Logout" />
             <ImageView fitHeight="117.0" fitWidth="156.0" layoutX="72.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="106.0" layoutY="235.0" prefHeight="28.0" prefWidth="88.0" />
          </children>
