@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
@@ -11,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="userName" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Admin.CoursesController">
+<AnchorPane fx:id="userName" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Admin.CourseController">
    <children>
-      <Pane layoutX="183.0" layoutY="36.0" prefHeight="318.0" prefWidth="546.0" style="-fx-background-color: teal;">
+      <Pane layoutX="183.0" layoutY="36.0" prefHeight="382.0" prefWidth="546.0" style="-fx-background-color: teal;">
          <children>
             <Label layoutX="60.0" layoutY="30.0" prefHeight="17.0" prefWidth="55.0" text="Course">
                <font>
@@ -58,9 +57,9 @@
                   <MenuItem mnemonicParsing="false" text="Multi" />
                </items>
             </SplitMenuButton>
-            <Button fx:id="addBtn" layoutX="60.0" layoutY="270.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="ADD" />
-            <Button fx:id="updateBtn" layoutX="223.0" layoutY="270.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="UPDATE" />
-            <Button fx:id="deleteBtn" layoutX="396.0" layoutY="270.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="DELETE" />
+            <Button fx:id="addBtn" layoutX="60.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleAddCourse" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="ADD" />
+            <Button fx:id="updateBtn" layoutX="223.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleUpdateCourse" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="UPDATE" />
+            <Button fx:id="deleteBtn" layoutX="394.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleDeleteCourse" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="DELETE" />
             <Label layoutX="60.0" layoutY="230.0" prefHeight="19.0" prefWidth="75.0" text="Semester">
                <font>
                   <Font size="15.0" />
@@ -78,16 +77,23 @@
                   <MenuItem mnemonicParsing="false" text="8" />
                </items>
             </SplitMenuButton>
+            <Label layoutX="60.0" layoutY="270.0" prefHeight="19.0" prefWidth="90.0" text="Theory hours">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TheoryHoursField" layoutX="300.0" layoutY="270.0" />
          </children>
       </Pane>
-      <TableView fx:id="tableView" layoutX="32.0" layoutY="393.0" onMouseClicked="#handleTableRowClick" prefHeight="261.0" prefWidth="851.0">
+      <TableView fx:id="tableView" layoutX="26.0" layoutY="440.0" onMouseClicked="#handleTableRowClick" prefHeight="214.0" prefWidth="857.0">
          <columns>
-            <TableColumn fx:id="codeTable" prefWidth="107.0" text="Code" />
-            <TableColumn fx:id="courseNameTable" minWidth="0.0" prefWidth="273.0" text="Course Name" />
-            <TableColumn fx:id="typeColumn" prefWidth="122.0" text="Type" />
-            <TableColumn fx:id="creditsColumn" prefWidth="96.0" text="Credits" />
-            <TableColumn fx:id="depColumn" prefWidth="139.0" text="Department" />
-            <TableColumn fx:id="SemColumn" prefWidth="113.0" text="Semester" />
+            <TableColumn fx:id="codeTable" prefWidth="75.0" text="Code" />
+            <TableColumn fx:id="courseNameTable" minWidth="0.0" prefWidth="256.0" text="Course Name" />
+            <TableColumn fx:id="typeColumn" prefWidth="92.0" text="Type" />
+            <TableColumn fx:id="creditsColumn" prefWidth="91.0" text="Credits" />
+            <TableColumn fx:id="depColumn" prefWidth="105.0" text="Department" />
+            <TableColumn fx:id="SemColumn" prefWidth="105.0" text="Semester" />
+            <TableColumn fx:id="TheoryHoursCol" prefWidth="132.0" text="Theory Hours" />
          </columns>
       </TableView>
    </children>

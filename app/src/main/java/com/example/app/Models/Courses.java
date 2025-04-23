@@ -12,18 +12,20 @@ public class Courses {
     private SimpleStringProperty type;
     private SimpleIntegerProperty semester;
     private SimpleStringProperty department;
+    private SimpleIntegerProperty theoryHours;
 
-    // Constructor
-    public Courses(String code, String name, double credits, String type, int semester, String department) {
+    // Updated constructor with 7 parameters
+    public Courses(String code, String name, double credits, String type, int semester, String department, int theoryHours) {
         this.code = new SimpleStringProperty(code);
         this.name = new SimpleStringProperty(name);
         this.credits = new SimpleDoubleProperty(credits);
         this.type = new SimpleStringProperty(type);
         this.semester = new SimpleIntegerProperty(semester);
         this.department = new SimpleStringProperty(department);
+        this.theoryHours = new SimpleIntegerProperty(theoryHours);
     }
 
-    // Getters and setters for each property
+    // Getters and setters
     public String getCode() {
         return code.get();
     }
@@ -96,15 +98,27 @@ public class Courses {
         return department;
     }
 
-    // Override toString() method for better display
+    public int getTheoryHours() {
+        return theoryHours.get();
+    }
+
+    public void setTheoryHours(int theoryHours) {
+        this.theoryHours.set(theoryHours);
+    }
+
+    public SimpleIntegerProperty theoryHoursProperty() {
+        return theoryHours;
+    }
+
+    // For display
     @Override
     public String toString() {
         return code.get() + " - " + name.get();
     }
 
-    // Additional method to display full course details
     public String getCourseDetails() {
         return "Code: " + code.get() + ", Name: " + name.get() + ", Credits: " + credits.get() +
-                ", Type: " + type.get() + ", Semester: " + semester.get() + ", Department: " + department.get();
+                ", Type: " + type.get() + ", Semester: " + semester.get() + ", Department: " + department.get() +
+                ", Theory Hours: " + theoryHours.get();
     }
 }

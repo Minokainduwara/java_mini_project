@@ -6,13 +6,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
 import java.sql.*;
 
-public class CoursesController {
+public class CourseController {
 
     @FXML
-    private TextField courseCode, CourseNameField, CreditsField;
+    private TextField courseCode, CourseNameField, CreditsField, TheoryHoursField;
 
     @FXML
     private SplitMenuButton courseTypeField, depField, semField;
@@ -30,12 +29,17 @@ public class CoursesController {
     private TableColumn<Courses, Double> creditsColumn;
 
     @FXML
-    private TableColumn<Courses, Integer> SemColumn;
+    private TableColumn<Courses, Integer> SemColumn, theoryHoursColumn;
 
     private ObservableList<Courses> courseList = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
+        // Add assertions to check if the columns are properly initialized
+        assert theoryHoursColumn != null : "fx:id=\"theoryHoursColumn\" was not injected: check your FXML file.";
+        assert codeTable != null : "fx:id=\"codeTable\" was not injected: check your FXML file.";
+        assert courseNameTable != null : "fx:id=\"courseNameTable\" was not injected: check your FXML file.";
+
         // Initialize table columns
         codeTable.setCellValueFactory(cellData -> cellData.getValue().codeProperty());
         courseNameTable.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
@@ -43,6 +47,7 @@ public class CoursesController {
         creditsColumn.setCellValueFactory(cellData -> cellData.getValue().creditsProperty().asObject());
         depColumn.setCellValueFactory(cellData -> cellData.getValue().departmentProperty());
         SemColumn.setCellValueFactory(cellData -> cellData.getValue().semesterProperty().asObject());
+        theoryHoursColumn.setCellValueFactory(cellData -> cellData.getValue().theoryHoursProperty().asObject());
 
         // Load the course data into the table view
         loadCourses();
@@ -65,7 +70,8 @@ public class CoursesController {
                     String type = rs.getString("Type");
                     int semester = rs.getInt("semester");
                     String department = rs.getString("department");
-                    Courses course = new Courses(code, name, credits, type, semester, department);
+                    int theoryHours = rs.getInt("Theory_hours");
+                    Courses course = new Courses(code, name, credits, type, semester, department, theoryHours);
                     courseList.add(course);
                 }
             }
@@ -83,6 +89,7 @@ public class CoursesController {
             courseCode.setText(selectedCourse.getCode());
             CourseNameField.setText(selectedCourse.getName());
             CreditsField.setText(String.valueOf(selectedCourse.getCredits()));
+            TheoryHoursField.setText(String.valueOf(selectedCourse.getTheoryHours()));
 
             // Set course type
             for (MenuItem item : courseTypeField.getItems()) {
@@ -116,9 +123,10 @@ public class CoursesController {
         String type = courseTypeField.getText();
         int semester = Integer.parseInt(semField.getText());
         String department = depField.getText();
+        int theoryHours = Integer.parseInt(TheoryHoursField.getText());
 
         try (Connection conn = DatabaseConnection.getConnection()) {
-            String query = "INSERT INTO Course (code, name, credits, Type, semester, department) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO Course (code, name, credits, Type, semester, department, Theory_hours) VALUES (?, ?, ?, ?, ?, ?, ?)";
             try (PreparedStatement ps = conn.prepareStatement(query)) {
                 ps.setString(1, code);
                 ps.setString(2, name);
@@ -126,6 +134,7 @@ public class CoursesController {
                 ps.setString(4, type);
                 ps.setInt(5, semester);
                 ps.setString(6, department);
+                ps.setInt(7, theoryHours);
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
@@ -143,16 +152,18 @@ public class CoursesController {
         String type = courseTypeField.getText();
         int semester = Integer.parseInt(semField.getText());
         String department = depField.getText();
+        int theoryHours = Integer.parseInt(TheoryHoursField.getText());
 
         try (Connection conn = DatabaseConnection.getConnection()) {
-            String query = "UPDATE Course SET name = ?, credits = ?, Type = ?, semester = ?, department = ? WHERE code = ?";
+            String query = "UPDATE Course SET name = ?, credits = ?, Type = ?, semester = ?, department = ?, Theory_hours = ? WHERE code = ?";
             try (PreparedStatement ps = conn.prepareStatement(query)) {
                 ps.setString(1, name);
                 ps.setDouble(2, credits);
                 ps.setString(3, type);
                 ps.setInt(4, semester);
                 ps.setString(5, department);
-                ps.setString(6, code);
+                ps.setInt(6, theoryHours);
+                ps.setString(7, code);
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
