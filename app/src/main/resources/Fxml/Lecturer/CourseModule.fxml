@@ -2,46 +2,95 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Lecturer.CourseModuleController">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Lecturer.CourseModuleController">
     <children>
-        <Pane layoutX="90.0" layoutY="50.0" prefHeight="500.0" prefWidth="620.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10px ;">
+        <Pane layoutX="83.0" layoutY="25.0" prefHeight="650.0" prefWidth="734.0" style="-fx-background-radius: 10px;">
             <children>
-                <HBox layoutX="10.0" layoutY="98.0" prefHeight="190.0" prefWidth="600.0" style="-fx-background-radius: 10px;">
-                    <children>
-                        <Button fx:id="addModuleButton" mnemonicParsing="false" onAction="#handleAddModule" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Add Module">
-                            <HBox.margin>
-                                <Insets left="20.0" top="20.0" />
-                            </HBox.margin>
-                            <font>
-                                <Font size="24.0" />
-                            </font>
-                        </Button>
-                        <Button fx:id="deleteModuleButton" mnemonicParsing="false" onAction="#handleDeleteModule" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Delete Module">
-                            <HBox.margin>
-                                <Insets left="80.0" top="20.0" />
-                            </HBox.margin>
-                            <font>
-                                <Font size="24.0" />
-                            </font>
-                        </Button>
-                    </children>
-                </HBox>
-                <HBox layoutX="180.0" layoutY="310.0" prefHeight="190.0" prefWidth="260.0">
-                    <children>
-                        <Button fx:id="showModuleButton" mnemonicParsing="false" onAction="#handleShowModule" prefHeight="150.0" prefWidth="240.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77; -fx-font-size: 25px; -fx-text-fill: #ffffff;" text="Show Module">
-                            <HBox.margin>
-                                <Insets left="10.0" top="20.0" />
-                            </HBox.margin>
-                        </Button>
-                    </children>
-                </HBox>
-                <Label layoutX="36.0" layoutY="36.0" style="-fx-font-size: 25px;" text="Course Module" />
+                <Label layoutX="21.0" layoutY="14.0" prefHeight="36.0" prefWidth="183.0" style="-fx-font-size: 25px;" text="Course Module" />
+            <Pane layoutX="135.0" layoutY="80.0" prefHeight="185.0" prefWidth="463.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77;">
+               <children>
+                  <VBox layoutX="70.0" layoutY="28.0" prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Course Name" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Course Code" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Credits" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="220.0" layoutY="28.0" prefHeight="130.0" prefWidth="169.0">
+                     <children>
+                        <TextField fx:id="courseNameInput" onAction="#handleCourseName">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="courseCodeInput" onAction="#handleCourseCode">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <ComboBox fx:id="creditComboBox" onAction="#handleCredits" prefHeight="26.0" prefWidth="170.0">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <TableView layoutX="88.0" layoutY="350.0" prefHeight="219.0" prefWidth="556.0">
+              <columns>
+                <TableColumn fx:id="courseNameColumn" prefWidth="308.0000305175781" text="Course Name" />
+                <TableColumn fx:id="courseCodeColumn" prefWidth="120.00003051757812" text="Course Code" />
+                  <TableColumn fx:id="creditsColumn" prefWidth="127.99993896484375" text="Credits" />
+              </columns>
+            </TableView>
+            <HBox layoutX="216.0" layoutY="281.0" prefHeight="55.0" prefWidth="300.0">
+               <children>
+                  <Button fx:id="addModulebutton" mnemonicParsing="false" onAction="#handleAddModuleButton" prefHeight="35.0" prefWidth="110.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77;" text="Add Module" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="25.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="updateModule" mnemonicParsing="false" onAction="#handleUpdateModuleButton" prefHeight="35.0" prefWidth="110.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77;" text="Update Module" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="30.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Button fx:id="deleteModuleButton" layoutX="291.0" layoutY="592.0" mnemonicParsing="false" onAction="#handleDeleteModuleButton" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-background-color: #197c77;" text="Delete Selected Module" textFill="WHITE" />
             </children>
         </Pane>
     </children>
