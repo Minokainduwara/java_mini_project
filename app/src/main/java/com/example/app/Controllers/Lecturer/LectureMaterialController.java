@@ -1,131 +1,206 @@
 package com.example.app.Controllers.Lecturer;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.example.app.Models.DatabaseConnection;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
-import java.sql.*;
-import java.io.File;
 
+import java.io.File;
+import java.sql.*;
+import java.util.stream.IntStream;
 
 public class LectureMaterialController {
-    @FXML
-    private Button deleteMaterialButton,saveMaterialButton,uploadMaterialButton;
 
-    @FXML
-    private TextField titleField;
+    @FXML private TextField titleField;
+    @FXML private TextArea descriptionArea;
+    @FXML private ComboBox<Integer> weekComboBox;
+    @FXML private ListView<MaterialItem> materialListView;
 
-    @FXML
-    private TextArea descriptionArea;
+    private String filePath = null;
+    private int userId;
 
-    @FXML
-    private ComboBox<String> weekComboBox;
-
-    @FXML
-    private ListView<String> materialListView;
-
-    private File uploadedFile;
-    private final ObservableList<String> materials = FXCollections.observableArrayList();
-
-    private Connection getConnection() throws SQLException {
-        // Replace with our DB config
-        return DriverManager.getConnection("jdbc:mysql://localhost:3306/lms", "root", "");
+    public void setUserId(int id) {
+        this.userId = id;
+        loadMaterials();
     }
 
     @FXML
-    private void initialize() {
-        loadMaterialsFromDatabase();
-
-        for (int i = 1; i <= 15; i++) {
-            weekComboBox.getItems().add("Week " + i);
-        }
-
+    public void initialize() {
+        IntStream.rangeClosed(1, 15).forEach(weekComboBox.getItems()::add);
+        //loadMaterials(); // Load saved materials when view loads
     }
 
     @FXML
-    private void handleUploadFile() {
+    public void handleUploadFile() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        uploadedFile = fileChooser.showOpenDialog(null);
-
-        if (uploadedFile != null) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "File Selected: " + uploadedFile.getName(), ButtonType.OK);
-            alert.show();
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            filePath = file.getAbsolutePath();
         }
     }
 
     @FXML
-    private void handleSaveMaterial() {
+    public void handleSaveMaterial() {
         String title = titleField.getText();
         String description = descriptionArea.getText();
-        String selectedWeek = weekComboBox.getValue();
-        String filePath = uploadedFile != null ? uploadedFile.getAbsolutePath() : "";
+        Integer weekNumber = weekComboBox.getValue();
 
-        if (title.isEmpty() || filePath.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Title and file must be selected.");
-            alert.show();
+        if (title.isEmpty() || description.isEmpty() || weekNumber == null || filePath == null) {
+            showAlert("Error", "All fields including file upload must be completed.");
             return;
         }
 
-        String sql = "INSERT INTO lecture_materials (title, description, file_path, week) VALUES (?, ?, ?, ?)";
-
-        try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, title);
-            stmt.setString(2, description);
-            stmt.setString(3, filePath);
-            //stmt.setInt(4, Session.userId);
-            stmt.setString(4, selectedWeek);
-            stmt.executeUpdate();
-
-            titleField.clear();
-            descriptionArea.clear();
-            uploadedFile = null;
-            weekComboBox.getItems().clear();
-
-            loadMaterialsFromDatabase();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (!isValidUserId(userId)) {
+            showAlert("Error", "Invalid User ID.");
+            return;
         }
 
+        try (Connection conn = new DatabaseConnection().getConnection()) {
+            String insertQuery = "INSERT INTO Lecture_Material (user_id, title, description, file_path, week_number) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement stmt = conn.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setInt(1, userId);
+            stmt.setString(2, title);
+            stmt.setString(3, description);
+            stmt.setString(4, filePath);
+            stmt.setInt(5, weekNumber);
+
+            int rows = stmt.executeUpdate();
+            if (rows > 0) {
+                ResultSet keys = stmt.getGeneratedKeys();
+                if (keys.next()) {
+                    int id = keys.getInt(1);
+                    materialListView.getItems().add(new MaterialItem(id, title + " - Week " + weekNumber));
+                }
+                clearForm();
+                showAlert("Success", "Material saved successfully!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Database Error", "Could not save material: " + e.getMessage());
+        }
     }
 
     @FXML
-    private void handleDeleteMaterial() {
-        String selected = materialListView.getSelectionModel().getSelectedItem();
-        if (selected == null) return;
+    public void handleDeleteMaterial() {
+        MaterialItem selected = materialListView.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            try (Connection connection = new DatabaseConnection().getConnection()) {
+                String deleteQuery = "DELETE FROM Lecture_Material WHERE material_id = ?";
+                try (PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
+                    preparedStatement.setInt(1, selected.getId());
+                    int rowsAffected = preparedStatement.executeUpdate();
 
-        String title = selected.split(" - ")[0];
-        String sql = "DELETE FROM lecture_materials WHERE title = ?";
-
-        try (Connection conn = getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, title);
-            stmt.executeUpdate();
-            loadMaterialsFromDatabase();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadMaterialsFromDatabase() {
-        materials.clear();
-        String sql = "SELECT * FROM lecture_materials";
-
-        try (Connection conn = getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                String entry = rs.getString("title") + " - " + rs.getString("description") + rs.getString("file_path");
-                materials.add(entry);
+                    if (rowsAffected > 0) {
+                        materialListView.getItems().remove(selected);
+                        showAlert("Deleted", "Item removed from list and database.");
+                    } else {
+                        showAlert("Not Found", "The selected material was not found in the database.");
+                    }
+                }
+            } catch (SQLException e) {
+                showAlert("Error", "An error occurred while deleting the material: " + e.getMessage());
+                e.printStackTrace();
+            } catch (Exception e) {
+                showAlert("Error", "An unexpected error occurred: " + e.getMessage());
+                e.printStackTrace();
             }
-            materialListView.setItems(materials);
+        } else {
+            showAlert("No Selection", "Please select a material to delete.");
+        }
+    }
+
+    /*private void loadMaterials() {
+        materialListView.getItems().clear();
+        String query = "SELECT material_id, title, week_number FROM Lecture_Material WHERE user_id = ?";
+        try (Connection conn = new DatabaseConnection().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("material_id");
+                String display = rs.getString("title") + " - Week " + rs.getInt("week_number");
+                materialListView.getItems().add(new MaterialItem(id, display));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }*/
+
+    private void loadMaterials() {
+        try (Connection conn = new DatabaseConnection().getConnection()) {
+            String query = "SELECT material_id, title, week_number FROM Lecture_Material WHERE user_id = ?";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setInt(1, userId);  // Make sure userId is correctly set!
+            ResultSet rs = stmt.executeQuery();
+
+            materialListView.getItems().clear(); // Clear existing list
+
+            while (rs.next()) {
+                int id = rs.getInt("material_id");
+                String title = rs.getString("title");
+                int week = rs.getInt("week_number");
+               // materialListView.getItems().add(id + " - " + title + " - Week " + week);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", "Could not load materials: " + e.getMessage());
         }
     }
 
 
+    private boolean isValidUserId(int userId) {
+        String query = "SELECT COUNT(*) FROM user WHERE id = ?";
+        try (Connection conn = new DatabaseConnection().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private void clearForm() {
+        titleField.clear();
+        descriptionArea.clear();
+        weekComboBox.setValue(null);
+        filePath = null;
+    }
+
+    private void showAlert(String title, String msg) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
+    }
+
+    // Inner class for holding material data
+    public static class MaterialItem {
+        private int id;
+        private String displayText;
+
+        public MaterialItem(int id, String displayText) {
+            this.id = id;
+            this.displayText = displayText;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getDisplayText() {
+            return displayText;
+        }
+
+        @Override
+        public String toString() {
+            return displayText;
+        }
+    }
 }
+
