@@ -8,16 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class LectureController {
-    private int userId;
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
     @FXML
     private AnchorPane paneCenter;
 
@@ -25,12 +19,6 @@ public class LectureController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Lecturer/" + page + ".fxml"));
             Pane view = loader.load();
-
-            if (page.equals("LectureMaterial")) {
-                LectureMaterialController controller = loader.getController();
-                controller.setUserId(userId);
-            }
-
             paneCenter.getChildren().setAll(view);
         } catch (IOException e) {
             System.out.println("Failed to load: " + page);
