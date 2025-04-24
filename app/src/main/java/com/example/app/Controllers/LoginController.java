@@ -1,5 +1,4 @@
 package com.example.app.Controllers;
-
 import com.example.app.Controllers.Lecturer.LectureController;
 import com.example.app.Models.DatabaseConnection;
 import javafx.fxml.FXML;
