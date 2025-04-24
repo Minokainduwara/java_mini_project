@@ -10,12 +10,13 @@ module com.example.app {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires java.desktop;
     requires java.sql;
+    requires javafx.graphics;
 
     opens com.example.app.Controllers to javafx.fxml;
     opens com.example.app.Controllers.Admin to javafx.fxml;
     opens com.example.app.Controllers.Lecturer to javafx.fxml;
+    opens com.example.app.Controllers.Student to javafx.fxml;
 
     opens com.example.app to javafx.fxml;
     exports com.example.app;

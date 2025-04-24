@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane layoutX="45.0" layoutY="48.0" prefHeight="603.0" prefWidth="810.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;">
+            <children>
+                <TableView layoutX="368.0" layoutY="78.0" prefHeight="282.0" prefWidth="409.0">
+                    <columns>
+                        <TableColumn prefWidth="114.66668701171875" text="Subject Code" />
+                        <TableColumn prefWidth="111.199951171875" text="Subject name" />
+                        <TableColumn minWidth="0.0" prefWidth="138.66668701171875" text="Result" />
+                    </columns>
+                </TableView>
+                <Text fill="WHITE" layoutX="75.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exam" wrappingWidth="241.83060455322266">
+                    <font>
+                        <Font name="System Bold" size="62.0" />
+                    </font>
+                </Text>
+                <Text fill="WHITE" layoutX="74.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Result" wrappingWidth="198.4763946533203">
+                    <font>
+                        <Font name="System Bold" size="62.0" />
+                    </font>
+                </Text>
+                <Label layoutX="448.0" layoutY="415.0" text="SGPA :" textFill="WHITE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="516.0" layoutY="420.0" />
+                <TextField layoutX="513.0" layoutY="475.0" />
+                <Label layoutX="449.0" layoutY="471.0" text="CGPA :" textFill="WHITE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <TextField />
+    </children>
+</AnchorPane>

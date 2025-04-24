@@ -1,10 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.app.Controllers.Student.StudentController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: teal green;">
+         <children>
+            <VBox layoutX="34.0" layoutY="235.0" prefHeight="329.0" prefWidth="224.0" style="-fx-background-color: white; -fx-background-radius: 10px;">
+               <children>
+                  <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#handlegotohome" prefHeight="7.0" prefWidth="151.0" style="-fx-background-color: teaL GREEN;" text="Home" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="timetableBtn" layoutX="40.0" layoutY="30.0" mnemonicParsing="false" onAction="#handletimetable" prefHeight="7.0" prefWidth="151.0" style="-fx-background-color: teaL GREEN;" text="Time Table" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" top="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="medicalbtn" layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onAction="#handlemedicle" prefHeight="7.0" prefWidth="151.0" style="-fx-background-color: teaL GREEN;" text="Medical Report" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" top="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="examresultbtn" layoutX="10.0" layoutY="100.0" mnemonicParsing="false" onAction="#handleexmresult" prefHeight="7.0" prefWidth="151.0" style="-fx-background-color: teaL GREEN;" text="Exam Result" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" top="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="attendancebtn" layoutX="10.0" layoutY="135.0" mnemonicParsing="false" onAction="#handleAttendece" prefHeight="7.0" prefWidth="151.0" style="-fx-background-color: teaL GREEN;" text="Attendance" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" top="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="noticebtn" layoutX="10.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleNotice" prefHeight="7.0" prefWidth="151.0" style="-fx-background-color: teaL GREEN;" text="Notice" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" top="15.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <Button layoutX="99.0" layoutY="183.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="94.0" text="Profile View" textFill="#216557" />
+            <Button layoutX="99.0" layoutY="628.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="94.0" text="LOG OUT" textFill="#216557" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="50.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="300.0" prefHeight="700.0" prefWidth="900.0" style="-fx-background-radius: 10px;">
+         <children>
+            <Pane layoutX="50.0" layoutY="88.0" prefHeight="162.0" prefWidth="254.0" style="-fx-background-color: blue;" />
+            <Pane layoutX="330.0" layoutY="88.0" prefHeight="162.0" prefWidth="254.0" style="-fx-background-color: blue;" />
+            <Pane layoutX="614.0" layoutY="88.0" prefHeight="162.0" prefWidth="254.0" style="-fx-background-color: blue;" />
+            <Pane layoutX="177.0" layoutY="316.0" prefHeight="162.0" prefWidth="254.0" style="-fx-background-color: blue;" />
+            <Pane layoutX="468.0" layoutY="316.0" prefHeight="162.0" prefWidth="254.0" style="-fx-background-color: blue;" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

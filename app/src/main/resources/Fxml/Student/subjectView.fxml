@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane layoutX="31.0" layoutY="27.0" prefHeight="650.0" prefWidth="833.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;">
+            <children>
+                <TabPane layoutX="84.0" layoutY="248.0" prefHeight="167.0" prefWidth="682.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab text="Week 1">
+                            <content>
+                                <Pane prefHeight="70.0" prefWidth="682.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 2">
+                            <content>
+                                <Pane prefHeight="266.0" prefWidth="682.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 3">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="Week 4">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 4">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 6">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 7">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="Week 8">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="Week 9">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 10">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 11">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="Week 12">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 13">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="week 14">
+                            <content>
+                                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                        <Tab text="Week 15">
+                            <content>
+                                <Pane prefHeight="418.0" prefWidth="682.0" style="-fx-background-color: white;" />
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
