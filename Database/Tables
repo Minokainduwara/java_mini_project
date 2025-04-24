@@ -50,3 +50,6 @@ ALTER TABLE Course
 ADD Theory_hours INT NOT NULL;
 
 
+
+
+

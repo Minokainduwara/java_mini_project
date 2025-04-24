@@ -11,45 +11,49 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Admin.Timetable">
-   <children>
-      <Pane layoutX="53.0" layoutY="44.0" prefHeight="277.0" prefWidth="786.0" style="-fx-background-color: teal;">
-         <children>
-            <Label layoutX="71.0" layoutY="61.0" prefHeight="23.0" prefWidth="77.0" text="TimeTable ">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="71.0" layoutY="116.0" prefHeight="23.0" prefWidth="77.0" text="Semester">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <SplitMenuButton fx:id="DepId" layoutX="180.0" layoutY="170.0" mnemonicParsing="false" text="Department">
-              <items>
-                <MenuItem mnemonicParsing="false" text="ET" />
-                <MenuItem mnemonicParsing="false" text="ICT" />
-                  <MenuItem mnemonicParsing="false" text="BST" />
-              </items>
-            </SplitMenuButton>
-            <Label layoutX="71.0" layoutY="171.0" prefHeight="23.0" prefWidth="77.0" text="Department">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <TextField layoutX="180.0" layoutY="60.0" prefHeight="26.0" prefWidth="566.0" promptText="TimeTableID" />
-            <TextField layoutX="180.0" layoutY="115.0" promptText="SemesterId" />
-            <Button layoutX="71.0" layoutY="227.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: RED;" text="Add" />
-            <Button layoutX="323.0" layoutY="227.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: RED;" text="Update" />
-            <Button layoutX="578.0" layoutY="227.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: RED;" text="Delete" />
-         </children>
-      </Pane>
-      <TableView layoutX="60.0" layoutY="436.0" prefHeight="202.0" prefWidth="778.0">
-        <columns>
-          <TableColumn fx:id="SemCol" prefWidth="72.32403945922852" text="Semester" />
-          <TableColumn fx:id="DepCol" prefWidth="89.07546997070312" text="Department" />
-            <TableColumn fx:id="linkCol" prefWidth="614.0705108642578" text="link" />
-        </columns>
-      </TableView>
-   </children>
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Admin.TimetableController">
+    <children>
+        <Pane layoutX="53.0" layoutY="44.0" prefHeight="310.0" prefWidth="786.0" style="-fx-background-color: teal;">
+            <children>
+                <Label layoutX="71.0" layoutY="61.0" prefHeight="23.0" prefWidth="77.0" text="TimeTable ">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="71.0" layoutY="116.0" prefHeight="23.0" prefWidth="77.0" text="Semester">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <SplitMenuButton fx:id="DepId" layoutX="180.0" layoutY="170.0" mnemonicParsing="false" text="Department">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="ET" />
+                        <MenuItem mnemonicParsing="false" text="ICT" />
+                        <MenuItem mnemonicParsing="false" text="BST" />
+                    </items>
+                </SplitMenuButton>
+                <Label layoutX="71.0" layoutY="171.0" prefHeight="23.0" prefWidth="77.0" text="Department">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="timetableIdField" layoutX="180.0" layoutY="60.0" prefHeight="26.0" prefWidth="566.0" promptText="TimeTableID" />
+                <TextField fx:id="semesterIdField" layoutX="180.0" layoutY="115.0" promptText="SemesterId" />
+                <Button layoutX="71.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: RED;" text="Add" />
+                <Button layoutX="323.0" layoutY="227.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: RED;" text="Update" />
+                <Button layoutX="578.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: RED;" text="Delete" />
+
+                <!-- New Buttons for PDF Handling -->
+                <Button fx:id="uploadBtn" layoutX="71.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleUpload" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: ORANGE;" text="Upload PDF" />
+                <Button fx:id="viewBtn" layoutX="578.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleView" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: GREEN;" text="View PDF" />
+            </children>
+        </Pane>
+        <TableView fx:id="tableView" layoutX="60.0" layoutY="436.0" prefHeight="202.0" prefWidth="778.0">
+            <columns>
+                <TableColumn fx:id="SemCol" prefWidth="72.32403945922852" text="Semester" />
+                <TableColumn fx:id="DepCol" prefWidth="89.07546997070312" text="Department" />
+                <TableColumn fx:id="linkCol" prefWidth="614.0705108642578" text="timetable" />
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>
