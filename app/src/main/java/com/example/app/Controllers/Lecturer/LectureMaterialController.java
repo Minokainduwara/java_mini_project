@@ -27,7 +27,7 @@ public class LectureMaterialController {
     @FXML
     public void initialize() {
         IntStream.rangeClosed(1, 15).forEach(weekComboBox.getItems()::add);
-        //loadMaterials(); // Load saved materials when view loads
+        //loadMaterials();
     }
 
     @FXML
@@ -69,7 +69,8 @@ public class LectureMaterialController {
                 ResultSet keys = stmt.getGeneratedKeys();
                 if (keys.next()) {
                     int id = keys.getInt(1);
-                    materialListView.getItems().add(new MaterialItem(id, title + " - Week " + weekNumber));
+                    //materialListView.getItems().add(new MaterialItem(id, title + " - Week " + weekNumber));
+                    loadMaterials();
                 }
                 clearForm();
                 showAlert("Success", "Material saved successfully!");
@@ -109,37 +110,22 @@ public class LectureMaterialController {
         }
     }
 
-    /*private void loadMaterials() {
-        materialListView.getItems().clear();
-        String query = "SELECT material_id, title, week_number FROM Lecture_Material WHERE user_id = ?";
-        try (Connection conn = new DatabaseConnection().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, userId);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("material_id");
-                String display = rs.getString("title") + " - Week " + rs.getInt("week_number");
-                materialListView.getItems().add(new MaterialItem(id, display));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }*/
-
     private void loadMaterials() {
         try (Connection conn = new DatabaseConnection().getConnection()) {
-            String query = "SELECT material_id, title, week_number FROM Lecture_Material WHERE user_id = ?";
+            String query = "SELECT material_id, title, week_number, description FROM Lecture_Material WHERE user_id = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setInt(1, userId);  // Make sure userId is correctly set!
+            stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
 
-            materialListView.getItems().clear(); // Clear existing list
+            materialListView.getItems().clear();
 
             while (rs.next()) {
                 int id = rs.getInt("material_id");
                 String title = rs.getString("title");
                 int week = rs.getInt("week_number");
-               // materialListView.getItems().add(id + " - " + title + " - Week " + week);
+                String description = rs.getString("description");
+                materialListView.getItems().add(new MaterialItem(id, "Week: " + week + " - " + title  + " - " + description ));
+
             }
 
         } catch (SQLException e) {
@@ -167,9 +153,22 @@ public class LectureMaterialController {
     private void clearForm() {
         titleField.clear();
         descriptionArea.clear();
-        weekComboBox.setValue(null);
         filePath = null;
+
+        weekComboBox.getSelectionModel().clearSelection();
+        weekComboBox.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(Integer item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText("Select Week");
+                } else {
+                    setText("Week " + item);
+                }
+            }
+        });
     }
+
 
     private void showAlert(String title, String msg) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
