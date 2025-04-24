@@ -28,10 +28,22 @@ public class TimetableController {
 
     @FXML
     public void initialize() {
+
+        MenuItem department1 = new MenuItem("ET");
+        MenuItem department2 = new MenuItem("ICT");
+        MenuItem department3 = new MenuItem("BST");
+        DepId.getItems().addAll(department1, department2, department3);
+
+        department1.setOnAction(e -> DepId.setText(department1.getText()));
+        department2.setOnAction(e -> DepId.setText(department2.getText()));
+        department3.setOnAction(e -> DepId.setText(department3.getText()));
+
         loadTimetables();
         SemCol.setCellValueFactory(cellData -> cellData.getValue().semesterIdProperty());
         DepCol.setCellValueFactory(cellData -> cellData.getValue().departmentProperty());
         linkCol.setCellValueFactory(cellData -> cellData.getValue().filePathProperty());
+
+
     }
 
     @FXML
@@ -74,8 +86,8 @@ public class TimetableController {
         }
 
         if (selectedPDF != null && !id.isEmpty() && !sem.isEmpty() && !dept.equals("Department")) {
+            String sql = "INSERT INTO timetable (timetable_id, semester, department, pdf_path) VALUES (?, ?, ?, ?)";
             try (Connection conn = DatabaseConnection.getConnection()) {
-                String sql = "INSERT INTO timetable (timetable_id, semester_id, department, file_path) VALUES (?, ?, ?, ?)";
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, id);
                 ps.setString(2, sem);
@@ -156,9 +168,9 @@ public class TimetableController {
             while (rs.next()) {
                 list.add(new Timetable(
                         rs.getString("timetable_id"),
-                        rs.getString("semester_id"),
+                        rs.getString("semester"),
                         rs.getString("department"),
-                        rs.getString("file_path")
+                        rs.getString("pdf_path")
                 ));
             }
         } catch (SQLException e) {
