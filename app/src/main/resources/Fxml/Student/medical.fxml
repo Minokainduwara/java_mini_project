@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Student.medicalController">
     <children>
         <BorderPane layoutX="-6.0" prefHeight="400.0" prefWidth="606.0">
             <bottom>
@@ -23,14 +23,11 @@
                                         <Font name="System Bold" size="20.0" />
                                     </font>
                                 </Text>
-                                <TreeTableView layoutX="247.0" layoutY="85.0" prefHeight="170.0" prefWidth="320.0">
+                                <TreeTableView fx:id="mediclatable" layoutX="188.0" layoutY="85.0" prefHeight="170.0" prefWidth="439.0">
                                     <columns>
-                                        <TreeTableColumn prefWidth="75.0" text="ID" />
-                                        <TreeTableColumn prefWidth="75.0" text="State">
-                                 <columns>
-                                              <TreeTableColumn prefWidth="75.0" text="Date" />
-                                 </columns></TreeTableColumn>
-                                        <TreeTableColumn prefWidth="75.0" text="C1" />
+                                        <TreeTableColumn fx:id="medicalStartDate" prefWidth="132.0" text="Start Date" />
+                                        <TreeTableColumn fx:id="medicalEndDate" prefWidth="123.20001220703125" text="End Date" />
+                              <TreeTableColumn fx:id="medicalStatus" minWidth="0.0" prefWidth="183.20001220703125" text="State" />
                                     </columns>
                                 </TreeTableView>
                             </children>
@@ -53,23 +50,28 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Text>
-                                <DatePicker layoutX="158.0" layoutY="96.0" onAction="#startdate" />
+                                <DatePicker fx:id="medicalStartDate" layoutX="158.0" layoutY="96.0" onAction="#handleMedicalstartdate" />
                                 <Text fill="WHITE" layoutX="70.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date To">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Text>
-                                <DatePicker layoutX="157.0" layoutY="165.0" onAction="#lastdate" prefHeight="25.0" prefWidth="175.0" />
-                                <Button fx:id="attndSubmitBtn" layoutX="590.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Submit" textFill="#176b56">
+                                <DatePicker fx:id="medicalLastDate" layoutX="157.0" layoutY="165.0" onAction="#handleMedicalLastDate" prefHeight="25.0" prefWidth="175.0" />
+                                <Button fx:id="medicalReportUploadbtn" layoutX="521.0" layoutY="134.0" mnemonicParsing="false" onAction="#handleuploadmedicalreport" prefHeight="25.0" prefWidth="120.0" text="Upload" textFill="#176b56">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </Button>
-                                <Text fill="WHITE" layoutX="497.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upload Folder">
+                                <Text fill="WHITE" layoutX="482.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medical Report:">
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </Text>
+                        <Button fx:id="medicaleReportSavebtn" layoutX="670.0" layoutY="134.0" mnemonicParsing="false" onAction="#handlemedclereportsave" prefHeight="25.0" prefWidth="120.0" text="Save" textFill="#176b56">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
                             </children>
                         </Pane>
                     </children>

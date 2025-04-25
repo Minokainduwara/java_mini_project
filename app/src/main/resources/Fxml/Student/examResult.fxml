@@ -9,16 +9,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Student.examResultController">
     <children>
         <Pane layoutX="45.0" layoutY="48.0" prefHeight="603.0" prefWidth="810.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;">
             <children>
-                <TableView layoutX="368.0" layoutY="78.0" prefHeight="282.0" prefWidth="409.0">
+                <TableView fx:id="examResultTable" layoutX="368.0" layoutY="78.0" prefHeight="282.0" prefWidth="409.0">
                     <columns>
-                        <TableColumn prefWidth="114.66668701171875" text="Subject Code" />
-                        <TableColumn prefWidth="111.199951171875" text="Subject name" />
-                        <TableColumn minWidth="0.0" prefWidth="138.66668701171875" text="Result" />
+                        <TableColumn fx:id="subjectCode" prefWidth="114.66668701171875" text="Subject Code" />
+                        <TableColumn fx:id="subjectName" prefWidth="111.199951171875" text="Subject name" />
+                        <TableColumn fx:id="Result" minWidth="0.0" prefWidth="138.66668701171875" text="Result" />
                     </columns>
                 </TableView>
                 <Text fill="WHITE" layoutX="75.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exam" wrappingWidth="241.83060455322266">
@@ -36,8 +35,8 @@
                         <Font size="20.0" />
                     </font>
                 </Label>
-                <TextField layoutX="516.0" layoutY="420.0" />
-                <TextField layoutX="513.0" layoutY="475.0" />
+                <TextField fx:id="SGPAValue" layoutX="516.0" layoutY="420.0" />
+                <TextField fx:id="CGPAvalue" layoutX="513.0" layoutY="475.0" />
                 <Label layoutX="449.0" layoutY="471.0" text="CGPA :" textFill="WHITE">
                     <font>
                         <Font size="20.0" />
