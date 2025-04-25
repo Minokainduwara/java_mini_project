@@ -46,6 +46,17 @@ CREATE TABLE Lecture_Material (
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
+___________________________________________________________________________________________________________________
+       Medical Table
+___________________________________________________________________________________________________________________
 
 
+CREATE TABLE medical (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id VARCHAR(20), -- Adjust based on your student ID format
+    start_date DATE,
+    end_date DATE,
+    file_path VARCHAR(255),
+    status ENUM('Pending', 'Approved', 'Not Approved') DEFAULT 'Pending'
+);
 

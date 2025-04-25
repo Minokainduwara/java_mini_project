@@ -12,6 +12,7 @@ module com.example.app {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires javafx.graphics;
+    requires java.desktop;
 
     opens com.example.app.Controllers to javafx.fxml;
     opens com.example.app.Controllers.Admin to javafx.fxml;
