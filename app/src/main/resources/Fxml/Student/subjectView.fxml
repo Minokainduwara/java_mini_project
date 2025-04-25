@@ -4,35 +4,36 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane layoutX="31.0" layoutY="27.0" prefHeight="650.0" prefWidth="833.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;">
+        <AnchorPane layoutX="33.0" layoutY="25.0" prefHeight="650.0" prefWidth="833.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;">
             <children>
                 <TabPane layoutX="84.0" layoutY="248.0" prefHeight="167.0" prefWidth="682.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                        <Tab text="Week 1">
+                        <Tab fx:id="week1tab" text="Week 1">
                             <content>
                                 <Pane prefHeight="70.0" prefWidth="682.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="week 2">
+                        <Tab fx:id="week2tab" text="week 2">
                             <content>
                                 <Pane prefHeight="266.0" prefWidth="682.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="week 3">
+                        <Tab fx:id="week3tab" text="week 3">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="Week 4">
+                        <Tab fx:id="week6tab" text="Week 4">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="week 4">
+                        <Tab fx:id="week5tab" text="week 5">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
@@ -42,53 +43,58 @@
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="week 7">
+                        <Tab fx:id="week7tab" text="week 7">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="Week 8">
+                        <Tab fx:id="week8tab" text="Week 8">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="Week 9">
+                        <Tab fx:id="week9tab" text="Week 9">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="week 10">
+                        <Tab fx:id="week10tab" text="week 10">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="week 11">
+                        <Tab fx:id="week11tab" text="week 11">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="Week 12">
+                        <Tab fx:id="week12tab" text="Week 12">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="week 13">
+                        <Tab fx:id="week13tab" text="week 13">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="week 14">
+                        <Tab fx:id="week14tab" text="week 14">
                             <content>
                                 <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
-                        <Tab text="Week 15">
+                        <Tab fx:id="week15tab" text="Week 15">
                             <content>
                                 <Pane prefHeight="418.0" prefWidth="682.0" style="-fx-background-color: white;" />
                             </content>
                         </Tab>
                     </tabs>
                 </TabPane>
+            <Text fill="WHITE" layoutX="77.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecture Meterial:" wrappingWidth="358.5072937011719">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Text>
             </children>
         </AnchorPane>
     </children>

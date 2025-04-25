@@ -3,67 +3,121 @@ package com.example.app.Controllers.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.Pane;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class StudentController {
 
     @FXML
-    private AnchorPane paneCenter; // Make sure this ID matches the pane in your main scene where content is loaded
+    private Button attendancebtn;
 
-    // Load FXML pages into the center pane
-    private void loadPage(String page) {
+    @FXML
+    private Button examresultbtn;
+
+    @FXML
+    private Button homeBtn;
+
+    @FXML
+    private Button medicalbtn;
+
+    @FXML
+    private Button noticebtn;
+
+    @FXML
+    private Button timetableBtn;
+
+    @FXML
+    private Label subject1btn;
+
+    @FXML
+    private Label subject2;
+
+    @FXML
+    private Label subject3btn;
+
+    @FXML
+    private Label subject4btn;
+
+    @FXML
+    private Label subject5btn;
+
+    // Utility method to change scenes
+    private void loadScene(String fxmlFile) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Student/" + page + ".fxml"));
-            Pane view = loader.load();
-            paneCenter.getChildren().setAll(view);
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/" + fxmlFile));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
         } catch (IOException e) {
-            System.out.println("Failed to load: " + page);
             e.printStackTrace();
         }
     }
 
-    // Home Button Action
+    // Navigation methods
     @FXML
-    private void handlegotohome(ActionEvent event) {
-        loadPage("home");
+    void handlegotohome(ActionEvent event) {
+        loadScene("Views/Student/Home.fxml");
     }
 
-    // Time Table Button Action
     @FXML
-    private void handletimetable(ActionEvent event) {
-        loadPage("timetable");
+    void handletimetable(ActionEvent event) {
+        loadScene("Views/Student/Timetable.fxml");
     }
 
-    // Medical Report Button Action
     @FXML
-    private void handlemedicle(ActionEvent event) {
-        loadPage("medicle");
-        System.out.println("Medical Report button pressed");
+    void handlemedicle(ActionEvent event) {
+        loadScene("Views/Student/Medical.fxml");
     }
 
-    // Exam Result Button Action
     @FXML
-    private void handleexmresult(ActionEvent event) {
-        loadPage("exam_result");
-        System.out.println("Exam Result button pressed");
+    void handleexmresult(ActionEvent event) {
+        loadScene("Views/Student/ExamResult.fxml");
     }
 
-    // Attendance View Button Action
     @FXML
-    private void handleAttendece(ActionEvent event) {
-        loadPage("attendance");
-        System.out.println("Attendance View button pressed");
+    void handleAttendece(ActionEvent event) {
+        loadScene("Views/Student/Attendance.fxml");
     }
 
-    // Notice Button Action
     @FXML
-    private void handleNotice(ActionEvent event) {
-        loadPage("notice");
-        System.out.println("Notice button pressed");
-}
+    void handleNotice(ActionEvent event) {
+        loadScene("Views/Student/Notice.fxml");
+    }
+
+    // Subject label handlers (example: load subject-specific details)
+    @FXML
+    void handlesubject1(MouseEvent event) {
+        System.out.println("Subject 1 clicked");
+        // loadScene("Views/Student/Subject1.fxml");
+    }
+
+    @FXML
+    void handleSubject2(MouseEvent event) {
+        System.out.println("Subject 2 clicked");
+        // loadScene("Views/Student/Subject2.fxml");
+    }
+
+    @FXML
+    void handleSubject3(MouseEvent event) {
+        System.out.println("Subject 3 clicked");
+        // loadScene("Views/Student/Subject3.fxml");
+    }
+
+    @FXML
+    void handleSubject$(MouseEvent event) {
+        System.out.println("Subject 4 clicked");
+        // loadScene("Views/Student/Subject4.fxml");
+    }
+
+    @FXML
+    void handleSubject5(MouseEvent event) {
+        System.out.println("Subject 5 clicked");
+        // loadScene("Views/Student/Subject5.fxml");
+    }
 }

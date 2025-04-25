@@ -14,7 +14,7 @@
                     <columns>
                         <TableColumn fx:id="subjectCode" prefWidth="119.1999740600586" text="Subject Code" />
                         <TableColumn fx:id="subjectName" prefWidth="428.0000305175781" text="Subject Name" />
-                        <TableColumn fx:id="result" minWidth="0.0" prefWidth="103.20001220703125" text="Result" />
+                        <TableColumn fx:id="AttendenceResult" minWidth="0.0" prefWidth="103.20001220703125" text="Result" />
                     </columns>
                 </TableView>
                 <Text fill="WHITE" layoutX="154.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Attendance View">

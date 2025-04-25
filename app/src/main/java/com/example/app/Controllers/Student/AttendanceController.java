@@ -8,6 +8,9 @@ import javafx.scene.control.TableView;
 public class AttendanceController {
 
     @FXML
+    private TableColumn<?, ?> AttendenceResult;
+
+    @FXML
     private TableView<?> attendanceTable;
 
     @FXML
