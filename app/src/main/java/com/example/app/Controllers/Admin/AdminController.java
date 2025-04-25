@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,20 +39,19 @@ public class AdminController {
     private AnchorPane paneCenter;
 
     @FXML
-    private ImageView imgField; // The ImageView to display the profile picture
+    private ImageView imgField;
 
     private final UserModel userModel = new UserModel();
 
     @FXML
     public void initialize() {
-        // Set up button actions
         logoutBtn.setOnAction(this::logout);
         dashboardbtn.setOnAction(this::handleDashboard);
         userBtn.setOnAction(this::handleUser);
         courseBtn.setOnAction(this::handleCourse);
         timetableBtn.setOnAction(this::handleTimetable);
 
-        loadProfileImage("admin"); // Load the profile image for admin (can be dynamically set)
+        loadProfileImage("admin");
     }
 
     public void logout(ActionEvent event) {
@@ -78,26 +78,32 @@ public class AdminController {
         }
     }
 
-    // Load Profile Image
     private void loadProfileImage(String username) {
         InputStream is = userModel.getProfilePictureByUsername(username);
         if (is != null) {
             try {
-                // Create an image from the InputStream
                 Image image = new Image(is);
-                imgField.setImage(image); // Set the ImageView to display the image
+                imgField.setImage(image);
+
+                double radius = Math.min(imgField.getFitWidth(), imgField.getFitHeight()) / 2;
+                Circle circleClip = new Circle(radius, radius, radius);
+                imgField.setClip(circleClip);
+
                 System.out.println("Profile picture loaded successfully.");
             } catch (Exception e) {
                 System.out.println("Error loading profile picture: " + e.getMessage());
             }
         } else {
             System.out.println("No profile image found for user: " + username);
-            // Set a default profile picture if none is found
-            imgField.setImage(new Image("file:resources/defaultProfileImage.png"));
+            Image defaultImg = new Image("file:resources/defaultProfileImage.png");
+            imgField.setImage(defaultImg);
+
+            double radius = Math.min(imgField.getFitWidth(), imgField.getFitHeight()) / 2;
+            Circle circleClip = new Circle(radius, radius, radius);
+            imgField.setClip(circleClip);
         }
     }
 
-    // Button action methods
     private void handleDashboard(ActionEvent event) {
         loadUI("dashboard.fxml");
     }
