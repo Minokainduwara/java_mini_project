@@ -10,23 +10,24 @@
    <children>
       <AnchorPane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: #197c77;">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="206.0" maxWidth="150.0" prefWidth="150.0" text="ADMIN" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="179.0" maxWidth="150.0" prefWidth="150.0" text="ADMIN" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgField" layoutX="75.0" layoutY="40.0" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgField" fitHeight="150.0" fitWidth="150.0" layoutX="75.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="logoutBtn" layoutX="106.0" layoutY="641.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="88.0" text="LogOut" />
             <AnchorPane layoutX="25.0" layoutY="253.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #d9d9d9;">
                <children>
-                  <Button fx:id="dashboardbtn" layoutX="10.0" layoutY="25.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77;" text="Dashboard" textFill="#d9d9d9" />
+                  <Button fx:id="dashboardbtn" layoutX="10.0" layoutY="25.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77;" text="Notice" textFill="#d9d9d9" />
                   <Button fx:id="userBtn" layoutX="10.0" layoutY="110.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77;" text="Users" textFill="#d9d9d9" />
                   <Button fx:id="courseBtn" layoutX="10.0" layoutY="195.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77;" text="Courses" textFill="#d9d9d9" />
                   <Button fx:id="timetableBtn" layoutX="10.0" layoutY="280.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77;" text="Timetable" textFill="#d9d9d9" />
                </children>
             </AnchorPane>
+            <Button fx:id="viewProfile" layoutX="123.0" layoutY="210.0" mnemonicParsing="false" text="Profile" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="paneCenter" layoutX="300.0" prefHeight="700.0" prefWidth="900.0" />
+      <AnchorPane fx:id="paneCenter" layoutX="353.0" prefHeight="700.0" prefWidth="900.0" />
    </children>
 </AnchorPane>

@@ -95,7 +95,7 @@ public class AdminController {
             }
         } else {
             System.out.println("No profile image found for user: " + username);
-            Image defaultImg = new Image("file:resources/defaultProfileImage.png");
+            Image defaultImg = new Image(Objects.requireNonNull(getClass().getResource("/Images/Admin/sample2.jpg")).toExternalForm());
             imgField.setImage(defaultImg);
 
             double radius = Math.min(imgField.getFitWidth(), imgField.getFitHeight()) / 2;
@@ -105,7 +105,7 @@ public class AdminController {
     }
 
     private void handleDashboard(ActionEvent event) {
-        loadUI("dashboard.fxml");
+        loadUI("Notices.fxml");
     }
 
     private void handleUser(ActionEvent event) {
