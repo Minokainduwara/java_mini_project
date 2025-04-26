@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Lecturer.NoticesController">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Admin.NoticesController">
     <children>
         <Pane layoutX="269.0" layoutY="39.0" prefHeight="379.0" prefWidth="417.0" style="-fx-background-color: teal; -fx-background-radius: 10px;">
             <children>
@@ -20,18 +14,18 @@
                     </font>
                 </Label>
                 <TextArea fx:id="writeNotice" layoutX="28.0" layoutY="137.0" prefHeight="153.0" prefWidth="375.0" promptText="Enter Message" />
-            <Button layoutX="50.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: red;" text="ADD" />
-            <Button layoutX="170.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: red;" text="UPDATE" />
-            <Button layoutX="290.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: red;" text="DELETE" />
-            <TextField layoutX="28.0" layoutY="76.0" prefHeight="42.0" prefWidth="375.0" promptText="Title" />
+                <Button fx:id="addButton" layoutX="50.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: red;" text="ADD" />
+                <Button fx:id="updateButton" layoutX="170.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: red;" text="UPDATE" />
+                <Button fx:id="deleteButton" layoutX="290.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" style="-fx-background-color: red;" text="DELETE" />
+                <TextField fx:id="titleField" layoutX="28.0" layoutY="76.0" prefHeight="42.0" prefWidth="375.0" promptText="Title" />
             </children>
         </Pane>
-      <TableView fx:id="NoticeTable" layoutX="42.0" layoutY="445.0" prefHeight="221.0" prefWidth="814.0">
-        <columns>
-          <TableColumn fx:id="noticeID" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="TitleCol" prefWidth="184.34781646728516" text="Title" />
-            <TableColumn fx:id="ContentCol" prefWidth="553.5" text="Content" />
-        </columns>
-      </TableView>
+        <TableView fx:id="NoticeTable" layoutX="42.0" layoutY="445.0" prefHeight="221.0" prefWidth="814.0">
+            <columns>
+                <TableColumn fx:id="noticeID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="TitleCol" prefWidth="184.0" text="Title" />
+                <TableColumn fx:id="ContentCol" prefWidth="553.0" text="Content" />
+            </columns>
+        </TableView>
     </children>
 </AnchorPane>
