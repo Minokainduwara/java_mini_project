@@ -2,161 +2,146 @@ package com.example.app.Controllers.Admin;
 
 import com.example.app.Models.Courses;
 import com.example.app.Models.DatabaseConnection;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseController {
 
-    @FXML
-    private TextField courseCode, CourseNameField, CreditsField, TheoryHoursField;
+    // FXML injected fields
+    @FXML private TextField CourseNameField;
+    @FXML private TextField courseCode;
+    @FXML private TextField CreditsField;
+    @FXML private ComboBox<String> ctypeid;
+    @FXML private ComboBox<String> depID;
+    @FXML private ComboBox<String> SemID;
+    @FXML private TextField TheoryHoursField;
 
-    @FXML
-    private SplitMenuButton courseTypeField, depField, semField;
+    @FXML private Button addBtn;
+    @FXML private Button updateBtn;
+    @FXML private Button deleteBtn;
 
-    @FXML
-    private Button addBtn, updateBtn, deleteBtn;
+    @FXML private TableView<Courses> tableView;
+    @FXML private TableColumn<Courses, String> codeTable;
+    @FXML private TableColumn<Courses, String> courseNameTable;
+    @FXML private TableColumn<Courses, String> typeColumn;
+    @FXML private TableColumn<Courses, Double> creditsColumn;
+    @FXML private TableColumn<Courses, String> depColumn;
+    @FXML private TableColumn<Courses, Integer> SemColumn;
+    @FXML private TableColumn<Courses, Integer> TheoryHoursCol;
 
-    @FXML
-    private TableView<Courses> tableView;
-
-    @FXML
-    private TableColumn<Courses, String> codeTable, courseNameTable, typeColumn, depColumn;
-
-    @FXML
-    private TableColumn<Courses, Double> creditsColumn;
-
-    @FXML
-    private TableColumn<Courses, Integer> SemColumn, theoryHoursColumn;
-
+    // Observable list for courses
     private ObservableList<Courses> courseList = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        // Add assertions to check if the columns are properly initialized
-        assert theoryHoursColumn != null : "fx:id=\"theoryHoursColumn\" was not injected: check your FXML file.";
-        assert codeTable != null : "fx:id=\"codeTable\" was not injected: check your FXML file.";
-        assert courseNameTable != null : "fx:id=\"courseNameTable\" was not injected: check your FXML file.";
+        // Set up ComboBoxes (example values, replace with actual options)
+        ctypeid.setItems(FXCollections.observableArrayList("Theory", "Practical", "Lab"));
+        depID.setItems(FXCollections.observableArrayList("ICT", "ET", "BST","Multi"));
+        SemID.setItems(FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8"));
 
-        // Initialize table columns
+        // Set up TableView columns
         codeTable.setCellValueFactory(cellData -> cellData.getValue().codeProperty());
         courseNameTable.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         typeColumn.setCellValueFactory(cellData -> cellData.getValue().typeProperty());
         creditsColumn.setCellValueFactory(cellData -> cellData.getValue().creditsProperty().asObject());
         depColumn.setCellValueFactory(cellData -> cellData.getValue().departmentProperty());
         SemColumn.setCellValueFactory(cellData -> cellData.getValue().semesterProperty().asObject());
-        theoryHoursColumn.setCellValueFactory(cellData -> cellData.getValue().theoryHoursProperty().asObject());
+        TheoryHoursCol.setCellValueFactory(cellData -> cellData.getValue().theoryHoursProperty().asObject());
 
-        // Load the course data into the table view
-        loadCourses();
-
-        // Add listener to handle row click event to populate form fields
-        tableView.setOnMouseClicked(event -> handleTableRowClick());
+        // Load initial data into table
+        loadCourseData();
     }
 
-    // Load all courses from the database
-    private void loadCourses() {
+    // Method to load course data into the table
+    private void loadCourseData() {
         courseList.clear();
-        try (Connection conn = DatabaseConnection.getConnection()) {
-            String query = "SELECT * FROM Course";
-            try (Statement stmt = conn.createStatement();
-                 ResultSet rs = stmt.executeQuery(query)) {
-                while (rs.next()) {
-                    String code = rs.getString("code");
-                    String name = rs.getString("name");
-                    double credits = rs.getDouble("credits");
-                    String type = rs.getString("Type");
-                    int semester = rs.getInt("semester");
-                    String department = rs.getString("department");
-                    int theoryHours = rs.getInt("Theory_hours");
-                    Courses course = new Courses(code, name, credits, type, semester, department, theoryHours);
+        try (Connection connection = DatabaseConnection.getConnection()) {
+            String query = "SELECT * FROM course";
+            try (PreparedStatement ps = connection.prepareStatement(query);
+                 ResultSet resultSet = ps.executeQuery()) {
+                while (resultSet.next()) {
+                    Courses course = new Courses(
+                            resultSet.getString("code"),
+                            resultSet.getString("name"),
+                            resultSet.getDouble("credits"),
+                            resultSet.getString("type"),
+                            resultSet.getInt("semester"),
+                            resultSet.getString("department"),
+                            resultSet.getInt("theory_hours")
+                    );
                     courseList.add(course);
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         tableView.setItems(courseList);
     }
 
-    // Handle table row click to populate the form fields
+    // Add new course
     @FXML
-    private void handleTableRowClick() {
-        Courses selectedCourse = tableView.getSelectionModel().getSelectedItem();
-        if (selectedCourse != null) {
-            courseCode.setText(selectedCourse.getCode());
-            CourseNameField.setText(selectedCourse.getName());
-            CreditsField.setText(String.valueOf(selectedCourse.getCredits()));
-            TheoryHoursField.setText(String.valueOf(selectedCourse.getTheoryHours()));
-
-            // Set course type
-            for (MenuItem item : courseTypeField.getItems()) {
-                if (item.getText().equals(selectedCourse.getType())) {
-                    courseTypeField.setText(item.getText());
-                }
-            }
-
-            // Set department
-            for (MenuItem item : depField.getItems()) {
-                if (item.getText().equals(selectedCourse.getDepartment())) {
-                    depField.setText(item.getText());
-                }
-            }
-
-            // Set semester
-            for (MenuItem item : semField.getItems()) {
-                if (item.getText().equals(String.valueOf(selectedCourse.getSemester()))) {
-                    semField.setText(item.getText());
-                }
-            }
-        }
-    }
-
-    // Handle Add Course button action
-    @FXML
-    private void handleAddCourse() {
-        String code = courseCode.getText();
+    private void handleAddCourse(ActionEvent event) {
         String name = CourseNameField.getText();
+        String code = courseCode.getText();
         double credits = Double.parseDouble(CreditsField.getText());
-        String type = courseTypeField.getText();
-        int semester = Integer.parseInt(semField.getText());
-        String department = depField.getText();
+        String type = ctypeid.getValue();
+        int semester = Integer.parseInt(SemID.getValue().substring(SemID.getValue().length() - 1));
+        String department = depID.getValue();
         int theoryHours = Integer.parseInt(TheoryHoursField.getText());
 
-        try (Connection conn = DatabaseConnection.getConnection()) {
-            String query = "INSERT INTO Course (code, name, credits, Type, semester, department, Theory_hours) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            try (PreparedStatement ps = conn.prepareStatement(query)) {
-                ps.setString(1, code);
-                ps.setString(2, name);
-                ps.setDouble(3, credits);
-                ps.setString(4, type);
-                ps.setInt(5, semester);
-                ps.setString(6, department);
-                ps.setInt(7, theoryHours);
-                ps.executeUpdate();
+        String query = "INSERT INTO course (code, name, credits, type, semester, department, theory_hours) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, code);
+            ps.setString(2, name);
+            ps.setDouble(3, credits);
+            ps.setString(4, type);
+            ps.setInt(5, semester);
+            ps.setString(6, department);
+            ps.setInt(7, theoryHours);
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Course added successfully!");
+                loadCourseData();  // Reload data
+            } else {
+                System.out.println("Failed to add course.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        loadCourses(); // Refresh the table view
     }
 
-    // Handle Update Course button action
+    // Update an existing course
     @FXML
-    private void handleUpdateCourse() {
-        String code = courseCode.getText();
-        String name = CourseNameField.getText();
-        double credits = Double.parseDouble(CreditsField.getText());
-        String type = courseTypeField.getText();
-        int semester = Integer.parseInt(semField.getText());
-        String department = depField.getText();
-        int theoryHours = Integer.parseInt(TheoryHoursField.getText());
+    private void handleUpdateCourse(ActionEvent event) {
+        Courses selectedCourse = tableView.getSelectionModel().getSelectedItem();
+        if (selectedCourse != null) {
+            String name = CourseNameField.getText();
+            String code = courseCode.getText();
+            double credits = Double.parseDouble(CreditsField.getText());
+            String type = ctypeid.getValue();
+            int semester = Integer.parseInt(SemID.getValue().substring(SemID.getValue().length() - 1));
+            String department = depID.getValue();
+            int theoryHours = Integer.parseInt(TheoryHoursField.getText());
 
-        try (Connection conn = DatabaseConnection.getConnection()) {
-            String query = "UPDATE Course SET name = ?, credits = ?, Type = ?, semester = ?, department = ?, Theory_hours = ? WHERE code = ?";
-            try (PreparedStatement ps = conn.prepareStatement(query)) {
+            String query = "UPDATE course SET name = ?, credits = ?, type = ?, semester = ?, department = ?, theory_hours = ? " +
+                    "WHERE code = ?";
+
+            try (Connection connection = DatabaseConnection.getConnection();
+                 PreparedStatement ps = connection.prepareStatement(query)) {
                 ps.setString(1, name);
                 ps.setDouble(2, credits);
                 ps.setString(3, type);
@@ -164,31 +149,57 @@ public class CourseController {
                 ps.setString(5, department);
                 ps.setInt(6, theoryHours);
                 ps.setString(7, code);
-                ps.executeUpdate();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        loadCourses(); // Refresh the table view
-    }
 
-    // Handle Delete Course button action
-    @FXML
-    private void handleDeleteCourse() {
-        Courses selectedCourse = tableView.getSelectionModel().getSelectedItem();
-        if (selectedCourse != null) {
-            String code = selectedCourse.getCode();
-
-            try (Connection conn = DatabaseConnection.getConnection()) {
-                String query = "DELETE FROM Course WHERE code = ?";
-                try (PreparedStatement ps = conn.prepareStatement(query)) {
-                    ps.setString(1, code);
-                    ps.executeUpdate();
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("Course updated successfully!");
+                    loadCourseData();  // Reload data
+                } else {
+                    System.out.println("Failed to update course.");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            loadCourses(); // Refresh the table view
+        }
+    }
+
+    // Delete a course
+    @FXML
+    private void handleDeleteCourse(ActionEvent event) {
+        Courses selectedCourse = tableView.getSelectionModel().getSelectedItem();
+        if (selectedCourse != null) {
+            String code = selectedCourse.getCode();
+            String query = "DELETE FROM course WHERE code = ?";
+
+            try (Connection connection = DatabaseConnection.getConnection();
+                 PreparedStatement ps = connection.prepareStatement(query)) {
+                ps.setString(1, code);
+
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("Course deleted successfully!");
+                    loadCourseData();  // Reload data
+                } else {
+                    System.out.println("Failed to delete course.");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Handle row selection
+    @FXML
+    private void handleTableRowClick(MouseEvent event) {
+        Courses selectedCourse = tableView.getSelectionModel().getSelectedItem();
+        if (selectedCourse != null) {
+            CourseNameField.setText(selectedCourse.getName());
+            courseCode.setText(selectedCourse.getCode());
+            CreditsField.setText(String.valueOf(selectedCourse.getCredits()));
+            ctypeid.setValue(selectedCourse.getType());
+            depID.setValue(selectedCourse.getDepartment());
+            SemID.setValue("Semester " + selectedCourse.getSemester());
+            TheoryHoursField.setText(String.valueOf(selectedCourse.getTheoryHours()));
         }
     }
 }

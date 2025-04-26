@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -10,6 +10,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <AnchorPane fx:id="userName" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Admin.CourseController">
    <children>
       <Pane layoutX="183.0" layoutY="36.0" prefHeight="382.0" prefWidth="546.0" style="-fx-background-color: teal;">
@@ -41,22 +43,7 @@
             </Label>
             <TextField fx:id="CourseNameField" layoutX="300.0" layoutY="27.0" />
             <TextField fx:id="courseCode" layoutX="300.0" layoutY="67.0" />
-            <SplitMenuButton fx:id="courseTypeField" layoutX="300.0" layoutY="107.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="157.0" text="Course Type">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Theory" />
-                  <MenuItem mnemonicParsing="false" text="Practical" />
-                  <MenuItem mnemonicParsing="false" text="Both" />
-               </items>
-            </SplitMenuButton>
             <TextField fx:id="CreditsField" layoutX="300.0" layoutY="147.0" />
-            <SplitMenuButton fx:id="depField" layoutX="300.0" layoutY="186.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="157.0" text="Department">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="ET" />
-                  <MenuItem mnemonicParsing="false" text="BST" />
-                  <MenuItem mnemonicParsing="false" text="ICT" />
-                  <MenuItem mnemonicParsing="false" text="Multi" />
-               </items>
-            </SplitMenuButton>
             <Button fx:id="addBtn" layoutX="60.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleAddCourse" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="ADD" />
             <Button fx:id="updateBtn" layoutX="223.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleUpdateCourse" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="UPDATE" />
             <Button fx:id="deleteBtn" layoutX="394.0" layoutY="324.0" mnemonicParsing="false" onAction="#handleDeleteCourse" prefWidth="100.0" style="-fx-background-color: #dc143c;" text="DELETE" />
@@ -65,24 +52,44 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <SplitMenuButton fx:id="semField" layoutX="300.0" layoutY="230.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="157.0" text="Semester">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="1" />
-                  <MenuItem mnemonicParsing="false" text="2" />
-                  <MenuItem mnemonicParsing="false" text="3" />
-                  <MenuItem mnemonicParsing="false" text="4" />
-                  <MenuItem mnemonicParsing="false" text="5" />
-                  <MenuItem mnemonicParsing="false" text="6" />
-                  <MenuItem mnemonicParsing="false" text="7" />
-                  <MenuItem mnemonicParsing="false" text="8" />
-               </items>
-            </SplitMenuButton>
             <Label layoutX="60.0" layoutY="270.0" prefHeight="19.0" prefWidth="90.0" text="Theory hours">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
             <TextField fx:id="TheoryHoursField" layoutX="300.0" layoutY="270.0" />
+            <ComboBox fx:id="ctypeid" layoutX="300.0" layoutY="107.0" prefHeight="26.0" prefWidth="159.0" promptText="CourseType">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="Theory" />
+                     <String fx:value="Practical" />
+                     <String fx:value="Lab" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <ComboBox fx:id="depID" layoutX="300.0" layoutY="187.0" prefHeight="26.0" prefWidth="159.0" promptText="Department">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="ICT" />
+                     <String fx:value="ET" />
+                     <String fx:value="BST" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <ComboBox fx:id="SemID" layoutX="300.0" layoutY="227.0" prefHeight="26.0" prefWidth="159.0" promptText="Semester">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="1" />
+                     <String fx:value="2" />
+                     <String fx:value="3" />
+                     <String fx:value="4" />
+                     <String fx:value="5" />
+                     <String fx:value="6" />
+                     <String fx:value="7" />
+                     <String fx:value="8" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
          </children>
       </Pane>
       <TableView fx:id="tableView" layoutX="26.0" layoutY="440.0" onMouseClicked="#handleTableRowClick" prefHeight="214.0" prefWidth="857.0">

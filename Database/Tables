@@ -50,12 +50,10 @@ ALTER TABLE Course
 ADD Theory_hours INT NOT NULL;
 
 
-MariaDB [LMS]> ALTER TABLE Course
-    -> MODIFY COLUMN Theory_hours VARCHAR(255);
-Query OK, 0 rows affected (0.075 sec)
-Records: 0  Duplicates: 0  Warnings: 0
+ALTER TABLE Course
+MODIFY COLUMN Theory_hours VARCHAR(255);
 
-MariaDB [LMS]>
+
 
 
 
