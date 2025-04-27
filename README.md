@@ -45,7 +45,7 @@ A comprehensive Java + MySQL-based platform built for the **Faculty of Technolog
 ### 🔐 Default Login Credentials
 | Role              | Username   | Password   |
 |-------------------|------------|------------|
-| Admin             | admin      | admin      |
+| Admin             | admin      | admin123      |
 | Lecturer          | lecturer   | lecturer   |
 | Technical Officer | technical  | technical  |
 | Student           | student    | student    |
