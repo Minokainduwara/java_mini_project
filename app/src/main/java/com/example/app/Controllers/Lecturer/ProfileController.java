@@ -55,13 +55,19 @@ public class ProfileController {
 
     private int userId;
 
-    // Method to initialize user data in the profile
+
     public void initialize(int userId) {
         this.userId = userId;
+        departmentInput.getItems().addAll(
+                "ICT",
+                "ET",
+                "BST",
+                "MDS"
+        );
         loadUserProfile();
     }
 
-    // Load user profile details from the database
+
     private void loadUserProfile() {
         String query = "SELECT * FROM User WHERE id = ?";
         try (Connection connection = DatabaseConnection.getConnection();
@@ -89,7 +95,7 @@ public class ProfileController {
         }
     }
 
-    // Handle the update of the profile information
+
     @FXML
     private void handleProfileUpdate() {
         String name = nameInput.getText().trim();
@@ -120,7 +126,6 @@ public class ProfileController {
         }
     }
 
-    // Handle profile picture update
     @FXML
     private void handleUpdateProfilePicture() {
         FileChooser fileChooser = new FileChooser();
@@ -149,11 +154,13 @@ public class ProfileController {
         }
     }
 
-    // Handle cancel button click
+
     @FXML
     private void handleCancel() {
-        Stage stage = (Stage) cancelButton.getScene().getWindow();
-        stage.close();
+        nameInput.clear();
+        emailInput.clear();
+        phoneNumberInput.clear();
+        departmentInput.setValue(null);
     }
 
     // Set the user ID for profile view
