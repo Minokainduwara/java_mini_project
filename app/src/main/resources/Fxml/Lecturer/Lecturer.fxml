@@ -13,9 +13,9 @@
       <AnchorPane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: #197c77;">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="170.0" prefHeight="30.0" prefWidth="150.0" />
-            <Button layoutX="86.0" layoutY="220.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="128.0" style="-fx-background-radius: 10px;" text="View Profile" />
-            <Button layoutX="106.0" layoutY="637.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="88.0" style="-fx-background-radius: 10px;" text="Log Out" />
-            <VBox layoutX="25.0" layoutY="279.0" prefHeight="340.0" prefWidth="250.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10px;">
+            <Button fx:id="viewProfile" layoutX="86.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleViewProfile" prefHeight="39.0" prefWidth="128.0" style="-fx-background-radius: 10px;" text="View Profile" />
+            <Button layoutX="106.0" layoutY="650.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="88.0" style="-fx-background-radius: 10px;" text="Log Out" />
+            <VBox layoutX="25.0" layoutY="268.0" prefHeight="349.0" prefWidth="250.0" style="-fx-background-color: #d9d9d9; -fx-background-radius: 10px;">
                <children>
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Home" textFill="WHITE">
                      <font>
@@ -25,10 +25,10 @@
                         <Insets />
                      </opaqueInsets>
                      <VBox.margin>
-                        <Insets left="10.0" top="40.0" />
+                        <Insets left="10.0" top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="lectureMaterialButton" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleLectureMaterialButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Lecture Material" textFill="WHITE">
+                  <Button fx:id="lectureMaterialButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleLectureMaterialButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Lecture Material" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -58,10 +58,21 @@
                         <Insets left="10.0" top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="studentDetails" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleStudentDetailsButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Student Details" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="studentDetailsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleStudentDetailsButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Student Details" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="13.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="studentMarks" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleStudentMarksButton" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #197c77; -fx-background-radius: 10px;" text="Student Marks" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
                      <VBox.margin>
                         <Insets left="10.0" top="20.0" />
                      </VBox.margin>
@@ -71,6 +82,6 @@
             <ImageView fitHeight="115.0" fitWidth="116.0" layoutX="92.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="300.0" prefHeight="700.0" prefWidth="900.0" />
+      <AnchorPane fx:id="paneCenter" layoutX="300.0" prefHeight="700.0" prefWidth="900.0" />
    </children>
 </AnchorPane>
