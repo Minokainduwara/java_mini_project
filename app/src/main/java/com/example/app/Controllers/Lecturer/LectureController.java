@@ -3,10 +3,13 @@ package com.example.app.Controllers.Lecturer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -30,6 +33,9 @@ public class LectureController {
             } else if (page.equals("CourseModule")) {
                 CourseModuleController controller = loader.getController();
                 controller.setUserId(userId); // Pass userId for CourseModule
+            } else if (page.equals("Profile")) {
+                ProfileController controller = loader.getController();
+                controller.setUserId(userId);
             }
 
             paneCenter.getChildren().setAll(view);
@@ -86,9 +92,21 @@ public class LectureController {
         loadPage("LectureMaterial");
     }
 
-    //@FXML
-    //private void logOutButton(ActionEvent event) {
+    @FXML
+    private void logOutButton(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+            Parent root = loader.load();
 
-    //}
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
