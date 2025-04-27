@@ -60,5 +60,59 @@ CREATE TABLE notices (
 );
 
 
+_____________________________________________________
+Student Table
+_____________________________________________________
+CREATE TABLE student (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    reg_num VARCHAR(20) NOT NULL UNIQUE,
+    level INT CHECK (level BETWEEN 1 AND 4),
+    gpa FLOAT CHECK (gpa BETWEEN 0.0 AND 4.0),
+    department VARCHAR(100),
+    dob DATE,
+    address VARCHAR(255),
+    phone VARCHAR(15),
+    profile_pic LONGBLOB
+);
+
+_____________________________________________________
+Lecture Material
+_____________________________________________________
+CREATE TABLE Lecture_Material (
+    material_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,  -- directly references user.id
+    title VARCHAR(255),
+    description TEXT,
+    file_path VARCHAR(500),
+    week_number INT CHECK (week_number BETWEEN 1 AND 15),
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+
+_____________________________________________________
+marks table
+_____________________________________________________
+
+CREATE TABLE marks(
+    mark_id INT AUTO_INCREMENT PRIMARY KEY,
+    Quiz_1 FLOAT(5,2),
+    Quiz_2 FLOAT(5,2),
+    Quiz_3 FLOAT(5,2),
+    Quiz_4 FLOAT(5,2),
+    Assesment_1 FLOAT(5,2),
+    Assesment_2 FLOAT(5,2),
+    Mid_term FLOAT(5,2),
+    Final_theory FLOAT(5,2),
+    Final_Practical FLOAT(5,2),
+    S_ID INT,
+    C_code VARCHAR(10),
+    FOREIGN KEY (S_ID) REFERENCES student(student_id),
+    FOREIGN KEY (C_code) REFERENCES Course(code)
+);
+
+
+
 
 

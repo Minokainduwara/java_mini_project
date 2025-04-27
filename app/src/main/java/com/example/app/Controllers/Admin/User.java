@@ -76,6 +76,8 @@ public class User {
 
     private void addUser() {
         String sql = "INSERT INTO User (username, password, name, email, phone, department, role, registration_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql2 = "INSERT INTO Student (name, reg_num, department) VALUES (?, ?, ?)";
+
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, userNameField.getText());
