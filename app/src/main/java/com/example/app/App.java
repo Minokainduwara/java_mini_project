@@ -3,28 +3,26 @@ package com.example.app;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.Parent;
 import javafx.stage.Stage;
+import java.io.IOException;
 
 public class App extends Application {
-    @Override
-    public void start(Stage primaryStage) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Lecturer/Lecturer.fxml"));
-            AnchorPane root = loader.load();
-
-            Scene scene = new Scene(root);
-            primaryStage.setTitle("LMS - Lecturer Panel");
-            primaryStage.setScene(scene);
-            primaryStage.setResizable(false);
-            primaryStage.show();
-        } catch (Exception e) {
-            System.out.println("Failed to load Lecturer.fxml");
-            e.printStackTrace();
-        }
-    }
 
     public static void main(String[] args) {
-        launch(args);
+        launch(args); // Correctly launching the JavaFX application
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        // Correctly loading the FXML file
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 600, 400);
+
+        primaryStage.setTitle("TECLMS");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
