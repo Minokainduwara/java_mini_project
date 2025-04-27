@@ -50,7 +50,7 @@ public class StudentController {
     // Utility method to change scenes
     private void loadScene(String fxmlFile) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/app/" + fxmlFile));
+            Parent root = FXMLLoader.load(getClass().getResource("/Fxml/Student/" + fxmlFile));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
@@ -62,32 +62,32 @@ public class StudentController {
     // Navigation methods
     @FXML
     void handlegotohome(ActionEvent event) {
-        loadScene("Views/Student/Home.fxml");
+        loadScene("Home");
     }
 
     @FXML
     void handletimetable(ActionEvent event) {
-        loadScene("Views/Student/Timetable.fxml");
+        loadScene("timetable");
     }
 
     @FXML
     void handlemedicle(ActionEvent event) {
-        loadScene("Views/Student/Medical.fxml");
+        loadScene("medical");
     }
 
     @FXML
     void handleexmresult(ActionEvent event) {
-        loadScene("Views/Student/ExamResult.fxml");
+        loadScene("examResult");
     }
 
     @FXML
     void handleAttendece(ActionEvent event) {
-        loadScene("Views/Student/Attendance.fxml");
+        loadScene("Attendance");
     }
 
     @FXML
     void handleNotice(ActionEvent event) {
-        loadScene("Views/Student/Notice.fxml");
+        loadScene("notice");
     }
 
     // Subject label handlers (example: load subject-specific details)
@@ -110,7 +110,7 @@ public class StudentController {
     }
 
     @FXML
-    void handleSubject$(MouseEvent event) {
+    void handleSubject4(MouseEvent event) {
         System.out.println("Subject 4 clicked");
         // loadScene("Views/Student/Subject4.fxml");
     }
