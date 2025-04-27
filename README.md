@@ -161,8 +161,8 @@ Common issues:
 ## 🙋‍♂️ Team Members
 - Dhyan Randika
 - Minoka Induwara
-- Dhanush Madusanka
-- Vihanga Sajith
+- Dilhara Samaranayaka
+- Malindu Shasan
 
 ## 🙏 Acknowledgments
 - ❤️ Open-source contributors  
