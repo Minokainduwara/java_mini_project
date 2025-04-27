@@ -90,34 +90,31 @@ public class StudentController {
         loadScene("notice");
     }
 
-    // Subject label handlers (example: load subject-specific details)
+
     @FXML
     void handlesubject1(MouseEvent event) {
         System.out.println("Subject 1 clicked");
-        // loadScene("Views/Student/Subject1.fxml");
     }
 
     @FXML
     void handleSubject2(MouseEvent event) {
         System.out.println("Subject 2 clicked");
-        // loadScene("Views/Student/Subject2.fxml");
     }
 
     @FXML
     void handleSubject3(MouseEvent event) {
         System.out.println("Subject 3 clicked");
-        // loadScene("Views/Student/Subject3.fxml");
     }
 
     @FXML
     void handleSubject4(MouseEvent event) {
         System.out.println("Subject 4 clicked");
-        // loadScene("Views/Student/Subject4.fxml");
+
     }
 
     @FXML
     void handleSubject5(MouseEvent event) {
         System.out.println("Subject 5 clicked");
-        // loadScene("Views/Student/Subject5.fxml");
+
     }
 }
