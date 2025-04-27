@@ -5,20 +5,34 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
 public class LectureController {
+    private int userId;
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
     @FXML
-    private BorderPane mainPane;
+    private AnchorPane paneCenter;
 
     private void loadPage(String page) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(page + ".fxml"));
         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Lecturer/" + page + ".fxml"));
             Pane view = loader.load();
-            mainPane.setCenter(view);
+
+            if (page.equals("LectureMaterial")) {
+                LectureMaterialController controller = loader.getController();
+                controller.setUserId(userId);
+            } else if (page.equals("CourseModule")) {
+                CourseModuleController controller = loader.getController();
+                controller.setUserId(userId); // Pass userId for CourseModule
+            }
+
+            paneCenter.getChildren().setAll(view);
         } catch (IOException e) {
             System.out.println("Failed to load: " + page);
             e.printStackTrace();
@@ -36,49 +50,45 @@ public class LectureController {
 
 
     @FXML
-    private void initialize() {
-        userName.setText("User Name: " + userName.getText());
-    }
-
-
-    @FXML
-    private void handleProfileButton(ActionEvent event) {
+    private void handleViewProfile(ActionEvent event) {
+        loadPage("Profile");
         System.out.println("Profile button pressed");
-        loadPage("/FXML/Lecturer/Profile");
     }
 
-    @FXML
-    private void handleHomeButton(ActionEvent event) {
-        System.out.println("Home button pressed");
-    }
-
-    @FXML
-    private void handleLectureMaterialButton(ActionEvent event) {
-        System.out.println("Lecture material button pressed");
-        loadPage("/FXML/Lecturer/LectureMaterial");
-    }
 
     @FXML
     private void handleCourseModuleButton(ActionEvent event) {
         System.out.println("Course module button pressed");
-        loadPage("/FXML/Lecturer/CourseModule");
+        loadPage("CourseModule");
     }
 
     @FXML
     private void handleNoticesButton(ActionEvent event) {
         System.out.println("Notices button pressed");
-        loadPage(("/FXML/Lecturer/Notices"));
+        loadPage("Notices");
     }
 
     @FXML
     private void handleStudentDetailsButton(ActionEvent event) {
         System.out.println("Student details button pressed");
-        loadPage(("/FXML/Lecturer/StudentDetails"));
+        loadPage("StudentDetails");
     }
 
     @FXML
-    private void handleLogOutButton(ActionEvent event) {
-        System.out.println("Logout button pressed");
+    private void handleStudentMarksButton(ActionEvent event) {
+        System.out.println("Student details button pressed");
+        loadPage("StudentMarks");
     }
+
+    @FXML
+    private void handleLectureMaterialButton(ActionEvent event) {
+        System.out.println("Lecture material button pressed");
+        loadPage("LectureMaterial");
+    }
+
+    //@FXML
+    //private void logOutButton(ActionEvent event) {
+
+    //}
 
 }
