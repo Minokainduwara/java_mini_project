@@ -45,10 +45,10 @@ A comprehensive Java + MySQL-based platform built for the **Faculty of Technolog
 ### 🔐 Default Login Credentials
 | Role              | Username   | Password   |
 |-------------------|------------|------------|
-| Admin             | admin      | admin123   |
-| Lecturer          | kamal      | pass123    |
-| Technical Officer | amara      | pass123    |
-| Student           | ICT19001   | pass123    |
+| Admin             | admin      | admin      |
+| Lecturer          | lecturer   | lecturer   |
+| Technical Officer | technical  | technical  |
+| Student           | student    | student    |
 
 ---
 
@@ -129,6 +129,18 @@ The system includes sample data for:
   - <80% attendance with medical records
 - Session duration: 2 hours per credit for both theory and practical
 
+### 📝 Assessment Structure
+| Subject Code | Quizzes | Assessments | Mid-term | Final Theory | Final Practical |
+|-------------|---------|-------------|----------|--------------|----------------|
+| ICT2113 (2T+1P) | 10% (best 2/3) | - | 20% | 40% | 30% |
+| ICT2122 (2T) | 10% (best 3/4) | 10% (1 assessment) | 20% | 60% | - |
+| ICT2133 (2T+1P) | 10% (best 2/3) | 20% (2/2 assessments) | - | 30% | 40% |
+| ICT2142 (2P) | - | 20% (1 assessment) | 20% | - | 60% |
+| ICT2152 (2T) | 10% (best 2/3) | 20% (2/2 assessments) | - | 70% | - |
+
+- All marks are calculated out of 100
+- To obtain eligibility, CA component must be ≥50%
+
 ---
 
 ## 🛠 Help & Troubleshooting
@@ -146,6 +158,13 @@ Common issues:
 
 ---
 
+## 🙋‍♂️ Team Members
+- Dhyan Randika
+- Minoka Induwara
+- Dhanush Madusanka
+- Vihanga Sajith
+
 ## 🙏 Acknowledgments
 - ❤️ Open-source contributors  
+- 👨‍👩‍👦‍👦 Group members who contributed to this project  
 - 🏫 Faculty of Technology, University of Ruhuna, for guidance & specifications
