@@ -79,7 +79,7 @@
          <children>
             <VBox layoutX="40.0" layoutY="39.0" prefHeight="605.0" prefWidth="806.0">
                <children>
-                  <Label fx:id="subject1btn" onDragDetected="#handlesubject1" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 1" textFill="WHITE">
+                  <Label fx:id="subject1btn" onDragDetected="#handlesubject1" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="   Data Structure" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
@@ -87,7 +87,7 @@
                         <Insets top="40.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="subject2" layoutX="10.0" layoutY="10.0" onDragDetected="#handleSubject2" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 2" textFill="WHITE">
+                  <Label fx:id="subject2" layoutX="10.0" layoutY="10.0" onDragDetected="#handleSubject2" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="  Web Design" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
@@ -95,7 +95,7 @@
                         <Insets top="40.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="subject3btn" layoutX="10.0" layoutY="85.0" onDragDetected="#handleSubject3" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 3" textFill="WHITE">
+                  <Label fx:id="subject3btn" layoutX="10.0" layoutY="85.0" onDragDetected="#handleSubject3" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="  Database Management System" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
@@ -103,7 +103,7 @@
                         <Insets top="40.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="subject4btn" layoutX="10.0" layoutY="160.0" onDragDetected="#handleSubject$" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 4" textFill="WHITE">
+                  <Label fx:id="subject4btn" layoutX="10.0" layoutY="160.0" onDragDetected="#handleSubject$" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="  Information System" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
@@ -111,7 +111,7 @@
                         <Insets top="40.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="subject5btn" layoutX="10.0" layoutY="236.0" onDragDetected="#handleSubject5" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 5" textFill="WHITE">
+                  <Label fx:id="subject5btn" layoutX="10.0" layoutY="236.0" onDragDetected="#handleSubject5" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="  English" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
