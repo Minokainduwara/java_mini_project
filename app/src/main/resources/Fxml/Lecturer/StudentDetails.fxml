@@ -36,7 +36,6 @@
                         <Font name="System Bold" size="14.0" />
                     </font>
                 </Label>
-                <Button layoutX="666.0" layoutY="155.0" mnemonicParsing="false" onAction="#uploadImageToDatabase" text="Upload mage" />
             </children>
         </Pane>
     </children>
