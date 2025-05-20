@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testing_project.Controllers.Student.StudentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Student.StudentController">
     <children>
         <AnchorPane prefHeight="700.0" prefWidth="300.0" style="-fx-background-color: teal green;">
             <children>
@@ -79,7 +79,7 @@
             <children>
                 <VBox layoutX="40.0" layoutY="39.0" prefHeight="605.0" prefWidth="806.0">
                     <children>
-                        <Label fx:id="subject1btn" onDragDetected="#handlesubject1" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 1" textFill="WHITE">
+                        <Label fx:id="subject1btn" onMouseClicked="#handlesubject1" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="     DATA STRUCTURE" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="30.0" />
                             </font>
@@ -87,7 +87,7 @@
                                 <Insets top="40.0" />
                             </VBox.margin>
                         </Label>
-                        <Label fx:id="subject2" layoutX="10.0" layoutY="10.0" onDragDetected="#handleSubject2" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 2" textFill="WHITE">
+                        <Label fx:id="subject2" layoutX="10.0" layoutY="10.0" onMouseClicked="#handlesubject2" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="     ENGLISH" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="30.0" />
                             </font>
@@ -95,7 +95,7 @@
                                 <Insets top="40.0" />
                             </VBox.margin>
                         </Label>
-                        <Label fx:id="subject3btn" layoutX="10.0" layoutY="85.0" onDragDetected="#handleSubject3" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 3" textFill="WHITE">
+                        <Label fx:id="subject3btn" layoutX="10.0" layoutY="85.0" onMouseClicked="#handlesubject3" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="     OBJECT ORIENTED PROGRAMMING" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="30.0" />
                             </font>
@@ -103,7 +103,7 @@
                                 <Insets top="40.0" />
                             </VBox.margin>
                         </Label>
-                        <Label fx:id="subject4btn" layoutX="10.0" layoutY="160.0" onDragDetected="#handleSubject$" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 4" textFill="WHITE">
+                        <Label fx:id="subject4btn" layoutX="10.0" layoutY="160.0" onMouseClicked="#handlesubject4" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="     OOA" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="30.0" />
                             </font>
@@ -111,7 +111,7 @@
                                 <Insets top="40.0" />
                             </VBox.margin>
                         </Label>
-                        <Label fx:id="subject5btn" layoutX="10.0" layoutY="236.0" onDragDetected="#handleSubject5" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="      Subject 5" textFill="WHITE">
+                        <Label fx:id="subject5btn" layoutX="10.0" layoutY="236.0" onMouseClicked="#handlesubject5" prefHeight="75.0" prefWidth="819.0" style="-fx-background-color: teal green; -fx-background-radius: 20px;" text="     COMPUTER NETWORKING" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="30.0" />
                             </font>

@@ -36,6 +36,9 @@ public class AdminController {
     private Button timetableBtn;
 
     @FXML
+    private Button profilebtn;
+
+    @FXML
     private AnchorPane paneCenter;
 
     @FXML
@@ -50,6 +53,7 @@ public class AdminController {
         userBtn.setOnAction(this::handleUser);
         courseBtn.setOnAction(this::handleCourse);
         timetableBtn.setOnAction(this::handleTimetable);
+        profilebtn.setOnAction(this::handleProfile);
 
         loadProfileImage("admin");
     }
@@ -118,5 +122,9 @@ public class AdminController {
 
     private void handleTimetable(ActionEvent event) {
         loadUI("Timetable.fxml");
+    }
+
+    private void handleProfile(ActionEvent event) {
+        loadUI("Profile.fxml");
     }
 }

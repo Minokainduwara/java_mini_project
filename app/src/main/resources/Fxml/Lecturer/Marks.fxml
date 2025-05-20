@@ -1,14 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Fxml.Lecturer.Marks"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.app.Controllers.Lecturer.MarksController">
+    <children>
+        <Pane layoutX="44.0" layoutY="43.0" prefHeight="367.0" prefWidth="820.0" style="-fx-background-color: teal;">
+            <children>
+                <Label layoutX="60.0" layoutY="40.0" prefHeight="38.0" prefWidth="52.0" text="Quiz 01" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="60.0" layoutY="80.0" prefHeight="38.0" prefWidth="52.0" text="Quiz 02" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="60.0" layoutY="120.0" prefHeight="38.0" prefWidth="52.0" text="Quiz 03" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="60.0" layoutY="160.0" prefHeight="38.0" prefWidth="52.0" text="Quiz 04" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="60.0" layoutY="200.0" prefHeight="38.0" prefWidth="94.0" text="Assesment 1" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="60.0" layoutY="240.0" prefHeight="38.0" prefWidth="87.0" text="Assesment 2" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="Q1" layoutX="230.0" layoutY="47.0" />
+                <TextField fx:id="Q2" layoutX="230.0" layoutY="88.0" />
+                <TextField fx:id="Q3" layoutX="230.0" layoutY="127.0" />
+                <TextField fx:id="Q4" layoutX="230.0" layoutY="166.0" />
+                <TextField fx:id="A1ID" layoutX="230.0" layoutY="205.0" />
+                <TextField fx:id="A2ID" layoutX="230.0" layoutY="244.0" />
+                <Label layoutX="450.0" layoutY="40.0" prefHeight="38.0" prefWidth="111.0" text="Mid term marks" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="MidID" layoutX="572.0" layoutY="47.0" />
+                <Label layoutX="450.0" layoutY="80.0" prefHeight="38.0" prefWidth="111.0" text="Final Theory" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="FinalMID" layoutX="571.0" layoutY="91.0" />
+                <Label layoutX="450.0" layoutY="121.0" prefHeight="52.0" prefWidth="101.0" text="Final Practical" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="450.0" layoutY="139.0" prefHeight="52.0" prefWidth="101.0" text="marks" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <Button layoutX="94.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="32.0" prefWidth="104.0" text="ADD" />
+                <Button layoutX="336.0" layoutY="310.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="32.0" prefWidth="104.0" text="UPDATE" />
+                <Button layoutX="584.0" layoutY="311.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="32.0" prefWidth="104.0" text="DELETE" />
+                <TextField fx:id="FinalPracticalId" layoutX="571.0" layoutY="138.0" />
+                <Label layoutX="450.0" layoutY="218.0" prefHeight="52.0" prefWidth="101.0" text="Student ID" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="S_ID" layoutX="572.0" layoutY="230.0" prefHeight="29.0" prefWidth="149.0" />
+                <Label layoutX="450.0" layoutY="91.0" prefHeight="52.0" prefWidth="101.0" text="marks" textFill="WHITE">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Label>
+            <Label layoutX="450.0" layoutY="174.0" prefHeight="52.0" prefWidth="101.0" text="Course code" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="C_code" layoutX="571.0" layoutY="186.0" />
+            </children>
+        </Pane>
+        <TableView fx:id="marks_table" layoutX="44.0" layoutY="455.0" prefHeight="200.0" prefWidth="813.0">
+            <columns>
+                <TableColumn fx:id="SID_col" prefWidth="75.0" text="SID" />
+                <TableColumn fx:id="Q1_Col" prefWidth="43.999961853027344" text="Q1" />
+                <TableColumn fx:id="Q2_col" prefWidth="43.999969482421875" text="Q2" />
+                <TableColumn fx:id="Q3_col" prefWidth="50.4000244140625" text="Q3" />
+                <TableColumn fx:id="Q4_Col" prefWidth="55.20001220703125" text="Q4" />
+                <TableColumn fx:id="As1_Col" prefWidth="79.99990844726562" text="Assesment 1" />
+                <TableColumn fx:id="As2_col" prefWidth="99.20001220703125" text="Assesment 2" />
+                <TableColumn fx:id="MID_col" prefWidth="60.800018310546875" text="MID" />
+                <TableColumn fx:id="FT_Col" prefWidth="88.0" text="Final Theory" />
+                <TableColumn fx:id="FP_Col" prefWidth="90.4000244140625" text="Final Practical" />
+            <TableColumn fx:id="CCode_col" prefWidth="90.4000244140625" text="Course Code" />
+            </columns>
+        </TableView>
+    </children>
 </AnchorPane>

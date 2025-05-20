@@ -10,11 +10,11 @@ import java.io.IOException;
 public class App extends Application {
 
     public static void main(String[] args) {
-        launch(args); // Correctly launching the JavaFX application
+        launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage)  throws IOException {
         // Correctly loading the FXML file
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
 

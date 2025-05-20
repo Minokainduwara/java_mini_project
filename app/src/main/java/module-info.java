@@ -13,6 +13,10 @@ module com.example.app {
     requires java.desktop;
     requires java.sql;
 
+
+    opens com.example.app.Models to javafx.base;
+
+
     opens com.example.app.Controllers to javafx.fxml;
     opens com.example.app.Controllers.Admin to javafx.fxml;
     opens com.example.app to javafx.fxml;
@@ -20,4 +24,10 @@ module com.example.app {
     exports com.example.app.Controllers.Admin to javafx.fxml;
     opens com.example.app.Controllers.Lecturer to javafx.fxml;
     exports com.example.app.Controllers.Lecturer to javafx.fxml;
+    opens com.example.app.Controllers.Student to javafx.base, javafx.fxml;
+
+    //opens com.example.app.Controllers.Student to javafx.fxml;
+    exports com.example.app.Controllers.Student to javafx.fxml;
+    opens com.example.app.Controllers.TechnicalOfficer to javafx.fxml;
+    exports com.example.app.Controllers.TechnicalOfficer to javafx.fxml;
 }

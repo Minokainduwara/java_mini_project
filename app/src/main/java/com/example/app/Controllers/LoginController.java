@@ -77,7 +77,7 @@ public class LoginController {
                     case "student":
                         fxmlFile = "/Fxml/Student/Student.fxml";
                         break;
-                    case "technicalofficer":
+                    case "technical officer":
                         fxmlFile = "/Fxml/TechnicalOfficer/TechnicalOfficer.fxml";
                         break;
                     case "lecturer":
